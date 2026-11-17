@@ -4,9 +4,10 @@
  */
 
 import {
-  APP_VERSION, DATA_URL, SERVICE_WORKER_URL, SERVICE_WORKER_SCOPE,
+  APP_VERSION, DATA_URL, PLANS_DIR, PLANS_INDEX_URL, SERVICE_WORKER_URL, SERVICE_WORKER_SCOPE,
 } from "./config.js";
 import { loadItinerary, ItineraryLoadError } from "./data/itinerary-loader.js";
+import { loadPlanIndex, resolvePlanId } from "./data/plan-index.js";
 import { normalizeTrip } from "./data/normalizer.js";
 import { summarizeErrors } from "./data/schema-validator.js";
 import { checkDay, checkTrip } from "./data/constraints.js";
@@ -33,31 +34,125 @@ export const startApp = async () => {
   createOfflineBanner($("offline-banner"));
   setupServiceWorker();
 
-  let doc;
-  try {
-    doc = await loadItinerary(DATA_URL);
-  } catch (error) {
-    renderLoadError(error);
+  const storage = createSafeStorage();
+  recordAppVersion(APP_VERSION, storage);
+
+  const index = await loadPlanIndex(PLANS_INDEX_URL);
+  if (!index) {
+    // 沒有方案清單：單一行程模式
+    let doc;
+    try {
+      doc = await loadItinerary(DATA_URL);
+    } catch (error) {
+      renderLoadError(error);
+      return;
+    }
+    safeMount(doc, { storage });
     return;
   }
 
+  // ---------- 多方案模式 ----------
+  const prefStore = createTripStore(index.tripId, storage);
+  const urlPlan = new URLSearchParams(window.location.search).get("plan");
+  const initialPlan = resolvePlanId(index.plans, urlPlan, prefStore.getPreferences().plan);
+
+  /** @type {ReturnType<typeof mount> | null} */
+  let session = null;
+  let loading = false;
+
+  /**
+   * @param {string} planId
+   * @param {{ fromUser?: boolean }} [opts]
+   */
+  const switchPlan = async (planId, { fromUser = false } = {}) => {
+    const entry = index.plans.find((p) => p.id === planId);
+    if (!entry || loading) return;
+    if (session && session.planId === planId) return;
+    loading = true;
+
+    let doc;
+    try {
+      doc = await loadItinerary(`${PLANS_DIR}${entry.file}`);
+    } catch (error) {
+      loading = false;
+      if (!session) {
+        renderLoadError(error);
+      } else {
+        console.error(`[TripCanvas] 無法載入${entry.title}：`, error, error?.details);
+        toast(`無法載入${entry.title}，請檢查網路後再試`);
+      }
+      return;
+    }
+    if (doc.trip.id !== index.tripId) {
+      console.warn(`[TripCanvas] ${entry.file} 的 trip.id（${doc.trip.id}）與 index.json 的 tripId 不同，清單勾選狀態不會共用`);
+    }
+
+    const keepDay = session?.getDayId() ?? null;
+    prefStore.setPreferences({ plan: planId });
+    writePlanToUrl(planId);
+    session?.destroy();
+    session = safeMount(doc, {
+      storage,
+      plans: index.plans,
+      planId,
+      initialDayId: keepDay,
+      onSelectPlan: (id) => switchPlan(id, { fromUser: true }),
+    });
+    loading = false;
+
+    if (fromUser) {
+      announce(`已切換到${entry.title}`);
+      /** @type {HTMLElement | null} */ (document.querySelector(`[data-plan-id="${planId}"]`))?.focus();
+    }
+  };
+
+  await switchPlan(initialPlan);
+};
+
+/**
+ * 把方案寫進網址（?plan=），保留目前的 #day hash，不新增瀏覽紀錄。
+ * @param {string} planId
+ */
+const writePlanToUrl = (planId) => {
+  const url = new URL(window.location.href);
+  if (url.searchParams.get("plan") === planId) return;
+  url.searchParams.set("plan", planId);
+  history.replaceState(null, "", url);
+};
+
+/**
+ * @param {object} doc
+ * @param {MountOptions} options
+ */
+const safeMount = (doc, options) => {
   try {
-    mount(normalizeTrip(doc));
+    return mount(normalizeTrip(doc), options);
   } catch (error) {
     console.error("[TripCanvas] 畫面初始化失敗：", error);
     renderLoadError(new ItineraryLoadError("invalid", String(error)));
+    return null;
   }
 };
 
-/** @param {object} model */
-const mount = (model) => {
+/**
+ * @typedef {object} MountOptions
+ * @property {ReturnType<typeof createSafeStorage>} storage
+ * @property {import("./data/plan-index.js").PlanEntry[]} [plans]
+ * @property {string | null} [planId]
+ * @property {string | null} [initialDayId]
+ * @property {(planId: string) => void} [onSelectPlan]
+ */
+
+/**
+ * @param {object} model
+ * @param {MountOptions} options
+ */
+const mount = (model, { storage, plans = [], planId = null, initialDayId = null, onSelectPlan }) => {
   const { trip, days } = model;
   const locale = trip.locale || "zh-TW";
   const today = todayInTimeZone(trip.timezone);
   const status = getTripStatus(trip.startDate, trip.endDate, today);
-  const storage = createSafeStorage();
   const store = createTripStore(trip.id, storage);
-  recordAppVersion(APP_VERSION, storage);
 
   document.title = `${trip.title}｜TripCanvas`;
   document.documentElement.lang = locale;
@@ -69,8 +164,9 @@ const mount = (model) => {
   const state = { dayId: null, itemId: null };
 
   // ---------- Header ----------
-  const shareUrl = () => buildShareUrl(window.location, state.dayId);
-  const header = createTripHeader($("trip-header"), { trip, days, status }, {
+  const shareUrl = () => buildShareUrl(window.location, state.dayId, planId);
+  const header = createTripHeader($("trip-header"), { trip, days, status, plans, planId }, {
+    onSelectPlan,
     onCopyLink: async () => {
       const ok = await copyToClipboard(shareUrl());
       toast(ok ? "已複製連結" : "無法自動複製，請從網址列複製");
@@ -87,6 +183,9 @@ const mount = (model) => {
     onPrint: () => window.print(),
   });
 
+  $("day-selector").hidden = false;
+  $("bottom-bar").hidden = false;
+  $("map-panel").hidden = false;
   if (days.length === 0) {
     $("day-selector").hidden = true;
     $("bottom-bar").hidden = true;
@@ -162,25 +261,38 @@ const mount = (model) => {
       day.notes.length > 0 && h("ul", { className: "day-notes", role: "list" },
         day.notes.map((n) => h("li", {}, icon("alert"), h("span", {}, n)))),
     );
-    renderDayChecks($("day-checks"), checkDay(day, trip.constraints), day.distanceKm);
+    renderDayChecks($("day-checks"), checkDay(day, trip.constraints), day.distanceKm, {
+      showDrive: trip.transportMode === "drive",
+    });
     timeline.render(day, { locale, today });
   }
 
-  // ---------- 初始日期：hash > 上次選擇 > 今天 > 第一天 ----------
+  // ---------- 初始日期：hash > 切換方案前的日期 > 上次選擇 > 今天 > 第一天 ----------
   const fromHash = () => {
     const id = decodeURIComponent(window.location.hash.slice(1));
     return dayById.has(id) ? id : null;
   };
-  const stored = store.getSelectedDay();
-  const initial = fromHash() ?? (stored && dayById.has(stored) ? stored : null) ?? todayDay?.id ?? days[0]?.id;
+  const valid = (id) => (id && dayById.has(id) ? id : null);
+  const initial = fromHash() ?? valid(initialDayId) ?? valid(store.getSelectedDay()) ?? todayDay?.id ?? days[0]?.id;
   if (initial) selectDay(initial);
 
-  window.addEventListener("hashchange", () => {
+  const onHashChange = () => {
     const id = fromHash();
     if (id && id !== state.dayId) selectDay(id, { fromUser: true });
-  });
+  };
+  window.addEventListener("hashchange", onHashChange);
 
   setupBottomBar({ todayDay, selectDay, status });
+
+  return {
+    planId,
+    getDayId: () => state.dayId,
+    /** 切換方案前釋放事件與地圖，避免重複綁定。 */
+    destroy() {
+      window.removeEventListener("hashchange", onHashChange);
+      mapView.destroy();
+    },
+  };
 };
 
 /**

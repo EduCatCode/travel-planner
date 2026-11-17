@@ -1,0 +1,1479 @@
+{
+  "schemaVersion": "1.0",
+  "trip": {
+    "id": "canada-rockies-2027",
+    "title": "加拿大洛磯與溫哥華",
+    "subtitle": "10 天 9 夜自駕旅行",
+    "startDate": "2027-09-15",
+    "endDate": "2027-09-24",
+    "timezone": "America/Vancouver",
+    "currency": "CAD",
+    "locale": "zh-TW",
+    "transportMode": "drive",
+    "constraints": {
+      "maxDailyDriveMinutes": 240,
+      "minAfternoonFreeMinutes": 60,
+      "afternoonWindow": {
+        "start": "13:00",
+        "end": "17:00"
+      },
+      "minimumTwoNightBases": 2,
+      "interests": [
+        "photography",
+        "local-food",
+        "cafe"
+      ]
+    }
+  },
+  "travelers": [],
+  "days": [
+    {
+      "id": "day-01",
+      "date": "2027-09-15",
+      "title": "抵達卡加利，前往班夫",
+      "baseCity": "Banff",
+      "summary": "取車後以低強度行程開始，傍晚在班夫鎮上散步適應時差。",
+      "driveMinutes": 110,
+      "distanceKm": 145,
+      "items": [
+        {
+          "id": "d01-arrive",
+          "type": "transport",
+          "startTime": "10:00",
+          "endTime": "11:30",
+          "title": "抵達卡加利機場並取車",
+          "description": "入境後到租車櫃檯取車，確認保險內容與加油規定。",
+          "place": {
+            "name": "Calgary International Airport",
+            "address": "2000 Airport Rd NE, Calgary, AB",
+            "latitude": 51.1315,
+            "longitude": -114.0106,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.1315,-114.0106",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "cost": {
+            "amount": null,
+            "currency": "CAD",
+            "category": "transport",
+            "status": "unknown"
+          },
+          "booking": {
+            "status": "confirmed",
+            "provider": "租車公司（示意）"
+          },
+          "tags": [
+            "airport",
+            "rental-car"
+          ],
+          "locked": true
+        },
+        {
+          "id": "d01-esim",
+          "type": "note",
+          "title": "開通加拿大 eSIM",
+          "description": "出發前已購買，落地後開啟數據漫遊即可。",
+          "cost": {
+            "amount": 18,
+            "currency": "USD",
+            "category": "other",
+            "status": "paid"
+          }
+        },
+        {
+          "id": "d01-drive",
+          "type": "transport",
+          "startTime": "12:00",
+          "endTime": "13:50",
+          "title": "開車前往班夫",
+          "description": "沿 Trans-Canada Hwy 1 西行，進入國家公園前需持有效的 Parks Canada 入園證。",
+          "place": {
+            "name": "Banff",
+            "address": "Banff, AB",
+            "latitude": 51.1784,
+            "longitude": -115.5708,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.1784,-115.5708",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "tags": [
+            "drive"
+          ]
+        },
+        {
+          "id": "d01-lunch",
+          "type": "meal",
+          "startTime": "14:00",
+          "endTime": "15:00",
+          "title": "班夫大道午餐",
+          "description": "Banff Avenue 一帶餐廳選擇多，適合當作抵達後的第一餐。",
+          "place": {
+            "name": "Banff Avenue",
+            "address": "Banff Ave, Banff, AB",
+            "latitude": 51.1767,
+            "longitude": -115.5703,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.1767,-115.5703",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "cost": {
+            "amount": 60,
+            "currency": "CAD",
+            "category": "meal",
+            "status": "estimated"
+          },
+          "tags": [
+            "local-food"
+          ]
+        },
+        {
+          "id": "d01-checkin",
+          "type": "lodging",
+          "startTime": "15:00",
+          "endTime": "16:00",
+          "title": "入住班夫住宿",
+          "description": "連住三晚，之後兩天以班夫為基地。",
+          "place": {
+            "name": "班夫市區住宿（示意位置）",
+            "address": "Banff, AB",
+            "latitude": 51.1757,
+            "longitude": -115.5698,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.1757,-115.5698",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "cost": {
+            "amount": 780,
+            "currency": "CAD",
+            "category": "lodging",
+            "status": "confirmed"
+          },
+          "booking": {
+            "status": "confirmed",
+            "provider": "訂房平台（確認碼不放在此檔案）"
+          },
+          "tags": [
+            "hotel"
+          ],
+          "locked": true
+        },
+        {
+          "id": "d01-free",
+          "type": "free-time",
+          "startTime": "16:00",
+          "endTime": "17:30",
+          "title": "飯店休息與彈性時間",
+          "description": "時差第一天，保留體力。"
+        },
+        {
+          "id": "d01-dinner",
+          "type": "meal",
+          "startTime": "18:30",
+          "endTime": "20:00",
+          "title": "晚餐與鎮上散步",
+          "place": {
+            "name": "Bow River Trail",
+            "address": "Banff, AB",
+            "latitude": 51.1745,
+            "longitude": -115.5728,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.1745,-115.5728",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "cost": {
+            "amount": 70,
+            "currency": "CAD",
+            "category": "meal",
+            "status": "estimated"
+          }
+        }
+      ],
+      "notes": [
+        "山區天氣可能快速變化，出發前再次確認路況。",
+        "國家公園入園證可在 Parks Canada 官網事先購買。"
+      ]
+    },
+    {
+      "id": "day-02",
+      "date": "2027-09-16",
+      "title": "班夫鎮周邊與纜車",
+      "baseCity": "Banff",
+      "summary": "以班夫為中心的輕鬆一天：上午纜車俯瞰山谷，下午留白，傍晚拍攝 Vermilion Lakes。",
+      "driveMinutes": 40,
+      "distanceKm": 30,
+      "weatherNote": "九月中山頂早晚可能接近 0°C，纜車山頂風大。",
+      "items": [
+        {
+          "id": "d02-gondola",
+          "type": "activity",
+          "startTime": "09:00",
+          "endTime": "11:30",
+          "title": "Banff Gondola 硫磺山纜車",
+          "description": "建議提早上山避開人潮，山頂有木棧道可走到 Sanson's Peak。",
+          "place": {
+            "name": "Banff Gondola",
+            "address": "100 Mountain Ave, Banff, AB",
+            "latitude": 51.1446,
+            "longitude": -115.5735,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.1446,-115.5735",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "cost": {
+            "amount": 140,
+            "currency": "CAD",
+            "category": "ticket",
+            "status": "estimated"
+          },
+          "booking": {
+            "status": "pending"
+          },
+          "tags": [
+            "photography"
+          ]
+        },
+        {
+          "id": "d02-cave",
+          "type": "activity",
+          "startTime": "11:45",
+          "endTime": "12:30",
+          "title": "Cave and Basin 國家歷史遺址",
+          "description": "加拿大國家公園的起源地，戶外步道免費。",
+          "place": {
+            "name": "Cave and Basin National Historic Site",
+            "address": "311 Cave Ave, Banff, AB",
+            "latitude": 51.169,
+            "longitude": -115.5917,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.169,-115.5917",
+            "lastVerifiedAt": "2026-05-02"
+          }
+        },
+        {
+          "id": "d02-lunch",
+          "type": "meal",
+          "startTime": "12:45",
+          "endTime": "13:45",
+          "title": "咖啡館午餐",
+          "place": {
+            "name": "Banff 市區咖啡館（示意）",
+            "address": "Banff, AB",
+            "latitude": 51.1781,
+            "longitude": -115.5711,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.1781,-115.5711",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "cost": {
+            "amount": 45,
+            "currency": "CAD",
+            "category": "meal",
+            "status": "estimated"
+          },
+          "tags": [
+            "cafe"
+          ]
+        },
+        {
+          "id": "d02-free",
+          "type": "free-time",
+          "startTime": "14:00",
+          "endTime": "16:00",
+          "title": "午後留白",
+          "description": "回住宿休息，或在 Bow River 河岸自由散步。"
+        },
+        {
+          "id": "d02-bowfalls",
+          "type": "activity",
+          "startTime": "16:15",
+          "endTime": "17:00",
+          "title": "Bow Falls 弓河瀑布",
+          "place": {
+            "name": "Bow Falls",
+            "address": "Banff, AB",
+            "latitude": 51.1675,
+            "longitude": -115.5626,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.1675,-115.5626",
+            "lastVerifiedAt": "2026-11-17"
+          }
+        },
+        {
+          "id": "d02-sunset",
+          "type": "activity",
+          "startTime": "18:30",
+          "endTime": "19:45",
+          "title": "Vermilion Lakes 夕陽",
+          "description": "平靜無風時可拍到 Mount Rundle 倒影。",
+          "place": {
+            "name": "Vermilion Lakes",
+            "address": "Vermilion Lakes Dr, Banff, AB",
+            "latitude": 51.1866,
+            "longitude": -115.6177,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.1866,-115.6177",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "tags": [
+            "photography"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "day-03",
+      "date": "2027-09-17",
+      "title": "露易絲湖與夢蓮湖",
+      "baseCity": "Banff",
+      "summary": "夢蓮湖不開放自用車進入，需搭 Parks Canada 接駁車，接駁需事先預約。",
+      "driveMinutes": 120,
+      "distanceKm": 120,
+      "items": [
+        {
+          "id": "d03-drive",
+          "type": "transport",
+          "startTime": "07:00",
+          "endTime": "08:00",
+          "title": "開車到露易絲湖 Park & Ride",
+          "description": "停車後轉乘接駁車。",
+          "place": {
+            "name": "Lake Louise Park and Ride",
+            "address": "Lake Louise, AB",
+            "latitude": 51.4415,
+            "longitude": -116.162,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.4415,-116.162",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "tags": [
+            "drive"
+          ]
+        },
+        {
+          "id": "d03-shuttle",
+          "type": "transport",
+          "startTime": "08:15",
+          "endTime": "08:45",
+          "title": "Parks Canada 接駁車前往夢蓮湖",
+          "description": "依預約時段搭乘，錯過可能無法改搭。",
+          "cost": {
+            "amount": 16,
+            "currency": "CAD",
+            "category": "transport",
+            "status": "confirmed"
+          },
+          "booking": {
+            "status": "confirmed",
+            "provider": "Parks Canada"
+          },
+          "tags": [
+            "shuttle"
+          ],
+          "locked": true,
+          "sourceIds": [
+            "parks-banff"
+          ]
+        },
+        {
+          "id": "d03-moraine",
+          "type": "activity",
+          "startTime": "08:45",
+          "endTime": "10:45",
+          "title": "夢蓮湖 Rockpile Trail",
+          "description": "短程步道即可登上岩堆俯瞰十峰谷。",
+          "place": {
+            "name": "Moraine Lake",
+            "address": "Moraine Lake Rd, Lake Louise, AB",
+            "latitude": 51.3217,
+            "longitude": -116.186,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.3217,-116.186",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "tags": [
+            "photography"
+          ],
+          "sourceIds": [
+            "parks-banff"
+          ]
+        },
+        {
+          "id": "d03-louise",
+          "type": "activity",
+          "startTime": "11:15",
+          "endTime": "13:00",
+          "title": "露易絲湖湖畔步道",
+          "description": "沿湖岸步道走到湖的另一端，回程可在湖畔休息。",
+          "place": {
+            "name": "Lake Louise",
+            "address": "Lake Louise, AB",
+            "latitude": 51.4167,
+            "longitude": -116.2155,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.4167,-116.2155",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "tags": [
+            "photography"
+          ]
+        },
+        {
+          "id": "d03-lunch",
+          "type": "meal",
+          "startTime": "13:00",
+          "endTime": "14:00",
+          "title": "露易絲湖村午餐",
+          "place": {
+            "name": "Lake Louise Village",
+            "address": "Lake Louise, AB",
+            "latitude": 51.4254,
+            "longitude": -116.1773,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.4254,-116.1773",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "cost": {
+            "amount": 55,
+            "currency": "CAD",
+            "category": "meal",
+            "status": "estimated"
+          }
+        },
+        {
+          "id": "d03-free",
+          "type": "free-time",
+          "startTime": "14:00",
+          "endTime": "15:30",
+          "title": "村內咖啡與休息",
+          "tags": [
+            "cafe"
+          ]
+        },
+        {
+          "id": "d03-return",
+          "type": "transport",
+          "startTime": "15:30",
+          "endTime": "16:30",
+          "title": "返回班夫",
+          "description": "可改走 Bow Valley Parkway（Hwy 1A），沿途野生動物較多，請減速慢行。",
+          "place": {
+            "name": "Banff",
+            "address": "Banff, AB",
+            "latitude": 51.1784,
+            "longitude": -115.5708,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.1784,-115.5708",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "tags": [
+            "drive"
+          ]
+        },
+        {
+          "id": "d03-dinner",
+          "type": "meal",
+          "startTime": "18:30",
+          "endTime": "20:00",
+          "title": "晚餐",
+          "cost": {
+            "amount": null,
+            "currency": "CAD",
+            "category": "meal",
+            "status": "unknown"
+          }
+        }
+      ]
+    },
+    {
+      "id": "day-04",
+      "date": "2027-09-18",
+      "title": "冰原大道前往賈斯珀",
+      "baseCity": "Jasper",
+      "summary": "全程最精華的景觀公路，沿途停靠點多，駕車時間接近上限，這天不安排下午留白。",
+      "driveMinutes": 220,
+      "distanceKm": 290,
+      "weatherNote": "冰原大道沿途手機訊號不穩，加油站很少，出發前加滿油。",
+      "items": [
+        {
+          "id": "d04-depart",
+          "type": "transport",
+          "startTime": "08:00",
+          "endTime": "08:45",
+          "title": "退房並前往冰原大道",
+          "description": "經露易絲湖後轉入 Hwy 93 North。",
+          "place": {
+            "name": "Icefields Parkway 起點",
+            "address": "Hwy 93 N, Lake Louise, AB",
+            "latitude": 51.437,
+            "longitude": -116.1968,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.437,-116.1968",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "tags": [
+            "drive"
+          ]
+        },
+        {
+          "id": "d04-bowlake",
+          "type": "activity",
+          "startTime": "09:15",
+          "endTime": "09:45",
+          "title": "Bow Lake",
+          "place": {
+            "name": "Bow Lake",
+            "address": "Icefields Pkwy, AB",
+            "latitude": 51.6766,
+            "longitude": -116.4646,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.6766,-116.4646",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "tags": [
+            "photography"
+          ]
+        },
+        {
+          "id": "d04-peyto",
+          "type": "activity",
+          "startTime": "10:00",
+          "endTime": "10:45",
+          "title": "Peyto Lake 觀景台",
+          "description": "從停車場步行約 15 分鐘，湖水呈狼頭形狀。",
+          "place": {
+            "name": "Peyto Lake Viewpoint",
+            "address": "Icefields Pkwy, AB",
+            "latitude": 51.7262,
+            "longitude": -116.5112,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.7262,-116.5112",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "tags": [
+            "photography"
+          ]
+        },
+        {
+          "id": "d04-icefield",
+          "type": "activity",
+          "startTime": "12:30",
+          "endTime": "14:30",
+          "title": "哥倫比亞冰原",
+          "description": "冰原雪車行程需預約，現場排隊時間長。",
+          "place": {
+            "name": "Columbia Icefield Discovery Centre",
+            "address": "Icefields Pkwy, AB",
+            "latitude": 52.2196,
+            "longitude": -117.223,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=52.2196,-117.223",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "cost": {
+            "amount": 190,
+            "currency": "CAD",
+            "category": "ticket",
+            "status": "confirmed"
+          },
+          "booking": {
+            "status": "confirmed",
+            "provider": "冰原行程業者（示意）"
+          },
+          "tags": [
+            "photography"
+          ],
+          "locked": true
+        },
+        {
+          "id": "d04-athabasca",
+          "type": "activity",
+          "startTime": "15:45",
+          "endTime": "16:15",
+          "title": "Athabasca Falls",
+          "place": {
+            "name": "Athabasca Falls",
+            "address": "Icefields Pkwy, AB",
+            "latitude": 52.6643,
+            "longitude": -117.8836,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=52.6643,-117.8836",
+            "lastVerifiedAt": "2026-11-17"
+          }
+        },
+        {
+          "id": "d04-checkin",
+          "type": "lodging",
+          "startTime": "17:00",
+          "endTime": "17:30",
+          "title": "入住賈斯珀住宿",
+          "description": "連住兩晚。",
+          "place": {
+            "name": "賈斯珀市區住宿（示意位置）",
+            "address": "Jasper, AB",
+            "latitude": 52.8737,
+            "longitude": -118.0814,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=52.8737,-118.0814",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "cost": {
+            "amount": 560,
+            "currency": "CAD",
+            "category": "lodging",
+            "status": "confirmed"
+          },
+          "booking": {
+            "status": "confirmed",
+            "provider": "訂房平台（確認碼不放在此檔案）"
+          },
+          "locked": true
+        },
+        {
+          "id": "d04-fuel",
+          "type": "note",
+          "title": "油資估算",
+          "description": "冰原大道沿途只有 Saskatchewan Crossing 有加油站，價格偏高。",
+          "cost": {
+            "amount": 90,
+            "currency": "CAD",
+            "category": "fuel",
+            "status": "estimated"
+          }
+        }
+      ],
+      "notes": [
+        "冰原大道部分路段野生動物常出現在路邊，請勿下車餵食或靠近。"
+      ]
+    },
+    {
+      "id": "day-05",
+      "date": "2027-09-19",
+      "title": "瑪琳峽谷與瑪琳湖",
+      "baseCity": "Jasper",
+      "summary": "上午峽谷步道、中午瑪琳湖遊船，下午回鎮上休息，晚上可觀星。",
+      "driveMinutes": 130,
+      "distanceKm": 110,
+      "items": [
+        {
+          "id": "d05-canyon",
+          "type": "activity",
+          "startTime": "08:30",
+          "endTime": "10:00",
+          "title": "瑪琳峽谷步道",
+          "description": "從第一座橋走到第四座橋約 1.5 小時來回。",
+          "place": {
+            "name": "Maligne Canyon",
+            "address": "Maligne Lake Rd, Jasper, AB",
+            "latitude": 52.9201,
+            "longitude": -117.9952,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=52.9201,-117.9952",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "tags": [
+            "photography"
+          ],
+          "sourceIds": [
+            "parks-jasper"
+          ]
+        },
+        {
+          "id": "d05-medicine",
+          "type": "activity",
+          "startTime": "10:30",
+          "endTime": "10:50",
+          "title": "Medicine Lake",
+          "place": {
+            "name": "Medicine Lake",
+            "address": "Maligne Lake Rd, Jasper, AB",
+            "latitude": 52.8583,
+            "longitude": -117.7781,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=52.8583,-117.7781",
+            "lastVerifiedAt": "2026-11-17"
+          }
+        },
+        {
+          "id": "d05-cruise",
+          "type": "activity",
+          "startTime": "11:30",
+          "endTime": "13:00",
+          "title": "瑪琳湖遊船至精靈島",
+          "description": "遊船需預約，船程約 90 分鐘。",
+          "place": {
+            "name": "Maligne Lake",
+            "address": "Maligne Lake Rd, Jasper, AB",
+            "latitude": 52.7259,
+            "longitude": -117.6406,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=52.7259,-117.6406",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "cost": {
+            "amount": 170,
+            "currency": "CAD",
+            "category": "ticket",
+            "status": "estimated"
+          },
+          "booking": {
+            "status": "pending"
+          },
+          "tags": [
+            "photography"
+          ]
+        },
+        {
+          "id": "d05-lunch",
+          "type": "meal",
+          "startTime": "13:15",
+          "endTime": "14:00",
+          "title": "湖畔簡餐",
+          "cost": {
+            "amount": 40,
+            "currency": "CAD",
+            "category": "meal",
+            "status": "estimated"
+          }
+        },
+        {
+          "id": "d05-free",
+          "type": "free-time",
+          "startTime": "14:30",
+          "endTime": "16:30",
+          "title": "回鎮上休息與購物"
+        },
+        {
+          "id": "d05-dinner",
+          "type": "meal",
+          "startTime": "18:00",
+          "endTime": "19:30",
+          "title": "賈斯珀鎮晚餐",
+          "place": {
+            "name": "Jasper 市區",
+            "address": "Connaught Dr, Jasper, AB",
+            "latitude": 52.877,
+            "longitude": -118.0805,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=52.877,-118.0805",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "cost": {
+            "amount": 80,
+            "currency": "CAD",
+            "category": "meal",
+            "status": "estimated"
+          },
+          "tags": [
+            "local-food"
+          ]
+        },
+        {
+          "id": "d05-stars",
+          "type": "free-time",
+          "startTime": "21:00",
+          "endTime": "22:00",
+          "title": "觀星（天候允許）",
+          "description": "賈斯珀是黑暗天空保護區，晴天時值得晚點睡。"
+        }
+      ]
+    },
+    {
+      "id": "day-06",
+      "date": "2027-09-20",
+      "title": "羅布森山與威爾斯格雷",
+      "baseCity": "Clearwater",
+      "summary": "離開亞伯達進入卑詩省，時區由山區時間改為太平洋時間（慢一小時）。",
+      "driveMinutes": 225,
+      "distanceKm": 320,
+      "items": [
+        {
+          "id": "d06-depart",
+          "type": "transport",
+          "startTime": "08:30",
+          "endTime": "09:30",
+          "title": "退房，往西經黃頭隘口",
+          "description": "過省界後時鐘調慢一小時。",
+          "tags": [
+            "drive"
+          ]
+        },
+        {
+          "id": "d06-robson",
+          "type": "activity",
+          "startTime": "09:30",
+          "endTime": "10:30",
+          "title": "羅布森山遊客中心",
+          "description": "加拿大洛磯山脈最高峰，晴天時山頂清楚可見。",
+          "place": {
+            "name": "Mount Robson Visitor Centre",
+            "address": "Hwy 16, Valemount, BC",
+            "latitude": 53.0352,
+            "longitude": -119.2335,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=53.0352,-119.2335",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "tags": [
+            "photography"
+          ]
+        },
+        {
+          "id": "d06-lunch",
+          "type": "meal",
+          "startTime": "11:30",
+          "endTime": "12:30",
+          "title": "Valemount 午餐",
+          "place": {
+            "name": "Valemount",
+            "address": "Valemount, BC",
+            "latitude": 52.8311,
+            "longitude": -119.2647,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=52.8311,-119.2647",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "cost": {
+            "amount": 50,
+            "currency": "CAD",
+            "category": "meal",
+            "status": "estimated"
+          }
+        },
+        {
+          "id": "d06-drive",
+          "type": "transport",
+          "startTime": "12:30",
+          "endTime": "14:30",
+          "title": "開車到 Clearwater",
+          "description": "Hwy 5 南下，沿北湯普森河谷。",
+          "tags": [
+            "drive"
+          ]
+        },
+        {
+          "id": "d06-free",
+          "type": "free-time",
+          "startTime": "14:30",
+          "endTime": "15:30",
+          "title": "入住前休息"
+        },
+        {
+          "id": "d06-spahats",
+          "type": "activity",
+          "startTime": "15:45",
+          "endTime": "16:45",
+          "title": "Spahats Creek Falls",
+          "description": "步道短、觀景台就在峽谷邊。",
+          "place": {
+            "name": "Spahats Creek Falls",
+            "address": "Clearwater Valley Rd, Clearwater, BC",
+            "latitude": 51.7377,
+            "longitude": -120.0177,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.7377,-120.0177",
+            "lastVerifiedAt": "2026-11-17"
+          }
+        },
+        {
+          "id": "d06-checkin",
+          "type": "lodging",
+          "startTime": "17:00",
+          "endTime": "17:30",
+          "title": "入住 Clearwater 住宿",
+          "description": "一晚，隔天早上出發。",
+          "place": {
+            "name": "Clearwater 住宿（示意位置）",
+            "address": "Clearwater, BC",
+            "latitude": 51.6503,
+            "longitude": -120.0383,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.6503,-120.0383",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "cost": {
+            "amount": 210,
+            "currency": "CAD",
+            "category": "lodging",
+            "status": "confirmed"
+          },
+          "booking": {
+            "status": "confirmed"
+          },
+          "locked": true
+        }
+      ]
+    },
+    {
+      "id": "day-07",
+      "date": "2027-09-21",
+      "title": "經甘露市南下到霍普",
+      "baseCity": "Hope",
+      "summary": "走 Coquihalla 高速公路南下，海拔高、天氣變化快。",
+      "driveMinutes": 210,
+      "distanceKm": 330,
+      "items": [
+        {
+          "id": "d07-helmcken",
+          "type": "activity",
+          "startTime": "08:30",
+          "endTime": "09:45",
+          "title": "Helmcken Falls",
+          "description": "加拿大第四高的瀑布，觀景台就在停車場旁。",
+          "place": {
+            "name": "Helmcken Falls",
+            "address": "Wells Gray Provincial Park, BC",
+            "latitude": 51.9545,
+            "longitude": -120.1771,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=51.9545,-120.1771",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "tags": [
+            "photography"
+          ]
+        },
+        {
+          "id": "d07-drive1",
+          "type": "transport",
+          "startTime": "10:00",
+          "endTime": "12:00",
+          "title": "開車到甘露市",
+          "place": {
+            "name": "Kamloops",
+            "address": "Kamloops, BC",
+            "latitude": 50.6745,
+            "longitude": -120.3273,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=50.6745,-120.3273",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "tags": [
+            "drive"
+          ]
+        },
+        {
+          "id": "d07-lunch",
+          "type": "meal",
+          "startTime": "12:00",
+          "endTime": "13:00",
+          "title": "甘露市午餐",
+          "cost": {
+            "amount": 50,
+            "currency": "CAD",
+            "category": "meal",
+            "status": "estimated"
+          },
+          "tags": [
+            "local-food"
+          ]
+        },
+        {
+          "id": "d07-free",
+          "type": "free-time",
+          "startTime": "13:00",
+          "endTime": "14:00",
+          "title": "河濱公園散步",
+          "place": {
+            "name": "Riverside Park",
+            "address": "Kamloops, BC",
+            "latitude": 50.68,
+            "longitude": -120.33,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=50.68,-120.33",
+            "lastVerifiedAt": "2026-11-17"
+          }
+        },
+        {
+          "id": "d07-drive2",
+          "type": "transport",
+          "startTime": "14:00",
+          "endTime": "16:00",
+          "title": "Coquihalla 公路到霍普",
+          "description": "山區路段注意限速與天氣。",
+          "tags": [
+            "drive"
+          ]
+        },
+        {
+          "id": "d07-othello",
+          "type": "activity",
+          "startTime": "16:15",
+          "endTime": "17:30",
+          "title": "Othello Tunnels 鐵道隧道步道",
+          "description": "舊鐵道改建的平緩步道，穿過峽谷中的五座隧道。",
+          "place": {
+            "name": "Othello Tunnels",
+            "address": "Othello Rd, Hope, BC",
+            "latitude": 49.3713,
+            "longitude": -121.3693,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=49.3713,-121.3693",
+            "lastVerifiedAt": "2026-11-17"
+          }
+        },
+        {
+          "id": "d07-checkin",
+          "type": "lodging",
+          "startTime": "18:00",
+          "endTime": "18:30",
+          "title": "入住霍普住宿",
+          "description": "一晚。",
+          "place": {
+            "name": "Hope 住宿（示意位置）",
+            "address": "Hope, BC",
+            "latitude": 49.3858,
+            "longitude": -121.4419,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=49.3858,-121.4419",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "cost": {
+            "amount": 180,
+            "currency": "CAD",
+            "category": "lodging",
+            "status": "confirmed"
+          },
+          "booking": {
+            "status": "confirmed"
+          },
+          "locked": true
+        }
+      ]
+    },
+    {
+      "id": "day-08",
+      "date": "2027-09-22",
+      "title": "抵達溫哥華",
+      "baseCity": "Vancouver",
+      "summary": "上午進城，下午格蘭維爾島與市區散步。",
+      "driveMinutes": 100,
+      "distanceKm": 150,
+      "items": [
+        {
+          "id": "d08-drive",
+          "type": "transport",
+          "startTime": "09:00",
+          "endTime": "10:45",
+          "title": "開車到溫哥華",
+          "description": "Hwy 1 西行，進市區後交通較壅塞。",
+          "tags": [
+            "drive"
+          ]
+        },
+        {
+          "id": "d08-checkin",
+          "type": "lodging",
+          "startTime": "11:00",
+          "endTime": "11:30",
+          "title": "寄放行李",
+          "description": "連住兩晚，市區停車費另計。",
+          "place": {
+            "name": "溫哥華市區住宿（示意位置）",
+            "address": "Vancouver, BC",
+            "latitude": 49.2827,
+            "longitude": -123.1207,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=49.2827,-123.1207",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "cost": {
+            "amount": 520,
+            "currency": "CAD",
+            "category": "lodging",
+            "status": "confirmed"
+          },
+          "booking": {
+            "status": "confirmed",
+            "provider": "訂房平台（確認碼不放在此檔案）"
+          },
+          "locked": true
+        },
+        {
+          "id": "d08-granville",
+          "type": "activity",
+          "startTime": "12:00",
+          "endTime": "14:30",
+          "title": "格蘭維爾島公共市場",
+          "description": "市場內小吃多，適合當午餐。",
+          "place": {
+            "name": "Granville Island Public Market",
+            "address": "1669 Johnston St, Vancouver, BC",
+            "latitude": 49.2712,
+            "longitude": -123.134,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=49.2712,-123.134",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "cost": {
+            "amount": 45,
+            "currency": "CAD",
+            "category": "meal",
+            "status": "estimated"
+          },
+          "tags": [
+            "local-food"
+          ]
+        },
+        {
+          "id": "d08-free",
+          "type": "free-time",
+          "startTime": "14:30",
+          "endTime": "16:00",
+          "title": "回住宿休息"
+        },
+        {
+          "id": "d08-gastown",
+          "type": "activity",
+          "startTime": "16:30",
+          "endTime": "18:00",
+          "title": "蓋士鎮與蒸汽鐘",
+          "place": {
+            "name": "Gastown Steam Clock",
+            "address": "305 Water St, Vancouver, BC",
+            "latitude": 49.2844,
+            "longitude": -123.1089,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=49.2844,-123.1089",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "tags": [
+            "photography"
+          ]
+        },
+        {
+          "id": "d08-dinner",
+          "type": "meal",
+          "startTime": "18:30",
+          "endTime": "20:00",
+          "title": "晚餐",
+          "cost": {
+            "amount": 90,
+            "currency": "CAD",
+            "category": "meal",
+            "status": "estimated"
+          },
+          "tags": [
+            "local-food"
+          ]
+        },
+        {
+          "id": "d08-parking",
+          "type": "note",
+          "title": "市區停車",
+          "description": "住宿停車費依飯店公告，尚未確認。",
+          "cost": {
+            "amount": null,
+            "currency": "CAD",
+            "category": "transport",
+            "status": "unknown"
+          }
+        }
+      ]
+    },
+    {
+      "id": "day-09",
+      "date": "2027-09-23",
+      "title": "海天公路與史丹利公園",
+      "baseCity": "Vancouver",
+      "summary": "上午走海天公路到斯闊米什，傍晚回市區騎腳踏車繞史丹利公園海堤。",
+      "driveMinutes": 130,
+      "distanceKm": 140,
+      "items": [
+        {
+          "id": "d09-drive",
+          "type": "transport",
+          "startTime": "08:30",
+          "endTime": "09:30",
+          "title": "海天公路北上",
+          "tags": [
+            "drive"
+          ]
+        },
+        {
+          "id": "d09-shannon",
+          "type": "activity",
+          "startTime": "09:30",
+          "endTime": "10:00",
+          "title": "Shannon Falls",
+          "place": {
+            "name": "Shannon Falls Provincial Park",
+            "address": "Hwy 99, Squamish, BC",
+            "latitude": 49.6714,
+            "longitude": -123.1592,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=49.6714,-123.1592",
+            "lastVerifiedAt": "2026-11-17"
+          }
+        },
+        {
+          "id": "d09-gondola",
+          "type": "activity",
+          "startTime": "10:15",
+          "endTime": "12:30",
+          "title": "Sea to Sky Gondola",
+          "description": "山頂吊橋與步道可俯瞰豪灣。",
+          "place": {
+            "name": "Sea to Sky Gondola",
+            "address": "36800 Hwy 99, Squamish, BC",
+            "latitude": 49.6764,
+            "longitude": -123.1561,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=49.6764,-123.1561",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "cost": {
+            "amount": 130,
+            "currency": "CAD",
+            "category": "ticket",
+            "status": "estimated"
+          },
+          "booking": {
+            "status": "pending"
+          },
+          "tags": [
+            "photography"
+          ]
+        },
+        {
+          "id": "d09-lunch",
+          "type": "meal",
+          "startTime": "12:30",
+          "endTime": "13:30",
+          "title": "斯闊米什午餐",
+          "cost": {
+            "amount": 50,
+            "currency": "CAD",
+            "category": "meal",
+            "status": "estimated"
+          }
+        },
+        {
+          "id": "d09-return",
+          "type": "transport",
+          "startTime": "13:30",
+          "endTime": "14:30",
+          "title": "返回溫哥華",
+          "tags": [
+            "drive"
+          ]
+        },
+        {
+          "id": "d09-free",
+          "type": "free-time",
+          "startTime": "14:30",
+          "endTime": "16:00",
+          "title": "午後留白"
+        },
+        {
+          "id": "d09-stanley",
+          "type": "activity",
+          "startTime": "16:00",
+          "endTime": "18:00",
+          "title": "史丹利公園海堤",
+          "description": "租腳踏車逆時針單向騎行一圈約 10 公里。",
+          "place": {
+            "name": "Stanley Park Seawall",
+            "address": "Stanley Park, Vancouver, BC",
+            "latitude": 49.3017,
+            "longitude": -123.1417,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=49.3017,-123.1417",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "cost": {
+            "amount": 40,
+            "currency": "CAD",
+            "category": "activity",
+            "status": "estimated"
+          },
+          "tags": [
+            "photography"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "day-10",
+      "date": "2027-09-24",
+      "title": "還車與返程",
+      "baseCity": "返程（不住宿）",
+      "summary": "國際線建議起飛前三小時抵達機場，還車預留加油時間。",
+      "driveMinutes": 30,
+      "distanceKm": 15,
+      "items": [
+        {
+          "id": "d10-breakfast",
+          "type": "meal",
+          "startTime": "08:00",
+          "endTime": "09:00",
+          "title": "早餐與退房",
+          "cost": {
+            "amount": 35,
+            "currency": "CAD",
+            "category": "meal",
+            "status": "estimated"
+          }
+        },
+        {
+          "id": "d10-return-car",
+          "type": "transport",
+          "startTime": "10:00",
+          "endTime": "10:30",
+          "title": "溫哥華機場還車",
+          "description": "還車前加滿油並拍照留存車況。",
+          "place": {
+            "name": "Vancouver International Airport",
+            "address": "3211 Grant McConachie Way, Richmond, BC",
+            "latitude": 49.1947,
+            "longitude": -123.1792,
+            "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=49.1947,-123.1792",
+            "lastVerifiedAt": "2026-11-17"
+          },
+          "booking": {
+            "status": "confirmed",
+            "provider": "租車公司（示意）"
+          },
+          "tags": [
+            "airport",
+            "rental-car"
+          ],
+          "locked": true
+        },
+        {
+          "id": "d10-flight",
+          "type": "transport",
+          "startTime": "13:00",
+          "endTime": "14:00",
+          "title": "搭機返程",
+          "description": "起飛時間以航空公司通知為準。",
+          "tags": [
+            "flight"
+          ],
+          "locked": true
+        }
+      ]
+    }
+  ],
+  "checklists": [
+    {
+      "id": "packing-main",
+      "title": "行李清單",
+      "scope": "trip",
+      "items": [
+        {
+          "id": "passport",
+          "label": "護照（效期六個月以上）",
+          "category": "documents",
+          "required": true
+        },
+        {
+          "id": "eta",
+          "label": "加拿大 eTA 電子旅行證",
+          "category": "documents",
+          "required": true
+        },
+        {
+          "id": "license",
+          "label": "國際駕照與台灣駕照正本",
+          "category": "documents",
+          "required": true
+        },
+        {
+          "id": "credit-card",
+          "label": "信用卡（租車押金用）",
+          "category": "money",
+          "required": true
+        },
+        {
+          "id": "layers",
+          "label": "保暖中層與防風外套",
+          "category": "clothing"
+        },
+        {
+          "id": "rain",
+          "label": "輕便雨具",
+          "category": "clothing"
+        },
+        {
+          "id": "shoes",
+          "label": "防滑健行鞋",
+          "category": "gear"
+        },
+        {
+          "id": "sunglasses",
+          "label": "太陽眼鏡與防曬",
+          "category": "health"
+        },
+        {
+          "id": "power-bank",
+          "label": "行動電源與車用充電線",
+          "category": "electronics"
+        },
+        {
+          "id": "meds",
+          "label": "常備藥品",
+          "category": "health"
+        }
+      ]
+    },
+    {
+      "id": "booking",
+      "title": "預訂狀態",
+      "scope": "trip",
+      "items": [
+        {
+          "id": "flight",
+          "label": "來回機票",
+          "category": "booking",
+          "required": true
+        },
+        {
+          "id": "car",
+          "label": "租車（含保險）",
+          "category": "booking",
+          "required": true
+        },
+        {
+          "id": "park-pass",
+          "label": "Parks Canada 入園證",
+          "category": "booking",
+          "required": true
+        },
+        {
+          "id": "moraine-shuttle",
+          "label": "夢蓮湖接駁車時段",
+          "category": "booking",
+          "required": true
+        },
+        {
+          "id": "icefield",
+          "label": "哥倫比亞冰原行程",
+          "category": "booking"
+        },
+        {
+          "id": "maligne-cruise",
+          "label": "瑪琳湖遊船",
+          "category": "booking"
+        },
+        {
+          "id": "gondola",
+          "label": "Banff Gondola 門票",
+          "category": "booking"
+        }
+      ]
+    },
+    {
+      "id": "todo",
+      "title": "行前待辦",
+      "scope": "trip",
+      "items": [
+        {
+          "id": "offline-map",
+          "label": "下載 Google Maps 離線地圖",
+          "category": "prep"
+        },
+        {
+          "id": "road-report",
+          "label": "出發前查 511 Alberta 與 DriveBC 路況",
+          "category": "prep"
+        },
+        {
+          "id": "bank",
+          "label": "通知銀行海外刷卡",
+          "category": "money"
+        },
+        {
+          "id": "insurance",
+          "label": "旅遊平安險與不便險",
+          "category": "prep"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "parks-banff",
+      "title": "Parks Canada：Banff National Park",
+      "url": "https://parks.canada.ca/pn-np/ab/banff",
+      "accessedAt": "2026-11-17"
+    },
+    {
+      "id": "parks-jasper",
+      "title": "Parks Canada：Jasper National Park",
+      "url": "https://parks.canada.ca/pn-np/ab/jasper",
+      "accessedAt": "2026-11-17"
+    },
+    {
+      "id": "drivebc",
+      "title": "DriveBC 卑詩省路況",
+      "url": "https://www.drivebc.ca/",
+      "accessedAt": "2026-11-17"
+    },
+    {
+      "id": "alberta-511",
+      "title": "511 Alberta 亞伯達省路況",
+      "url": "https://511.alberta.ca/",
+      "accessedAt": "2026-11-17"
+    }
+  ]
+}

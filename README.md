@@ -27,7 +27,8 @@ https://{你的 GitHub 帳號}.github.io/travel-planner/
 - 清單：行李、預訂、行前待辦，勾選狀態只存在你自己的瀏覽器。
 - 預算：依幣別與類別加總，不同幣別不混算，未填金額另外列出。
 - 離線：成功開啟一次後，飛航模式下仍可查看行程文字。
-- 分享與列印：分享連結會帶上目前日期（例如 `#day-03`），列印版自動隱藏地圖與按鈕。
+- 分享與列印：分享連結會帶上目前方案與日期（例如 `?plan=b#day-03`），列印版自動隱藏地圖與按鈕。
+- 多方案：同一趟旅行可以準備好幾個版本，在頁面上一鍵切換比較。
 
 ## 本機開發
 
@@ -53,7 +54,7 @@ npm run preview   # 在 http://localhost:4173/travel-planner/ 預覽正式版（
 
 ```bash
 npm run lint            # ESLint（含禁止 innerHTML 的規則）
-npm run validate:data   # 驗證 public/data/itinerary.json
+npm run validate:data   # 驗證 itinerary.json 與 plans/ 內所有方案
 npm run test            # 單元測試（Vitest）
 npx playwright install chromium   # 第一次執行 E2E 前安裝瀏覽器
 npm run test:e2e        # E2E、響應式、離線與無障礙測試（Playwright + axe）
@@ -93,6 +94,65 @@ GitHub Pages 的 project site 位於 `https://{帳號}.github.io/{repository 名
 3. `npm run dev` 預覽，確認無誤後推送。
 
 也可以請 AI 依下方欄位說明產生 JSON，再用 `validate:data` 檢查。AI 產生的營業時間、票價與座標仍需自行確認。
+
+## 多方案：同一趟旅行準備好幾個版本
+
+目前專案內附「東京與河口湖 7 日」的三個方案（A 富士攝影優先、B 慢遊咖啡、C 東京城市與採買）。頁面上方的「行程方案」可以切換，切換時會停在同一天，地圖與時間軸一起更新。
+
+### 檔案位置
+
+```text
+public/data/
+├── itinerary.json        沒有方案清單時使用的預設行程（目前與方案 A 相同）
+└── plans/
+    ├── index.json        方案清單
+    ├── plan-a.json       每個方案都是一份完整的行程，格式與 itinerary.json 相同
+    ├── plan-b.json
+    └── plan-c.json
+```
+
+`plans/index.json` 格式：
+
+```json
+{
+  "schemaVersion": "1.0",
+  "tripId": "tokyo-fuji-2026-12",
+  "plans": [
+    {
+      "id": "a",
+      "title": "方案 A：富士攝影優先",
+      "shortTitle": "富士攝影優先",
+      "description": "切換按鈕下方顯示的說明",
+      "file": "plan-a.json"
+    }
+  ]
+}
+```
+
+| 欄位 | 必填 | 說明 |
+|---|:-:|---|
+| `tripId` | 是 | 必須與每個方案檔案的 `trip.id` 相同，清單勾選狀態才會在方案之間共用 |
+| `plans[].id` | 是 | 小寫英文、數字或連字號，會出現在網址 `?plan=` |
+| `plans[].title` | 是 | 完整名稱，切換後會以螢幕閱讀器宣告 |
+| `plans[].shortTitle` | 否 | 按鈕上顯示的短名稱 |
+| `plans[].description` | 否 | 選中時顯示在按鈕下方 |
+| `plans[].file` | 是 | 同資料夾內的檔名，例如 `plan-d.json` |
+
+### 新增或修改方案
+
+1. 複製一個現有方案，例如把 `plan-a.json` 複製成 `plan-d.json` 再修改內容。
+2. 保持 `trip.id` 不變；每天的 `days[].id`（`day-01`、`day-02`…）也建議與其他方案相同，切換方案時才會停在同一天。
+3. 在 `index.json` 的 `plans` 加一筆。
+4. 執行 `npm run validate:data`。它會驗證 itinerary.json、index.json 與所有方案，並檢查 `trip.id` 是否一致。
+5. 推送後自動部署。新增或移除方案會讓網站提示「有新版本可用」，重新載入後新方案也能離線使用。
+
+### 開啟時顯示哪個方案
+
+依序為：網址的 `?plan=`、這台裝置上次選擇的方案、清單中的第一個方案。不存在的方案 id 會被忽略。
+
+### 回到單一行程
+
+刪除 `public/data/plans/` 資料夾即可，網站會改讀 `itinerary.json`，頁面上不顯示方案切換。
 
 ### 欄位說明
 
@@ -159,7 +219,8 @@ GitHub Pages 的 project site 位於 `https://{帳號}.github.io/{repository 名
 ## PWA 與快取更新
 
 - 第一次開啟時，Service Worker 會快取頁面、CSS、JS、icons 與 `itinerary.json`。
-- `itinerary.json` 採 Network First：有網路時永遠讀最新版，離線才用快取。所以**只修改行程資料時，使用者重新整理就會看到新內容**。
+- `data/` 內的 JSON（`itinerary.json` 與所有方案）採 Network First：有網路時永遠讀最新版，離線才用快取。所以**只修改行程資料時，使用者重新整理就會看到新內容**。
+- 安裝時會預先快取方案清單列出的所有方案，離線時也能切換到從未開啟過的方案。
 - 程式或樣式更新後，每次 build 會產生新的快取版本。使用者下次開啟時會看到「有新版本可用」，按下才重新載入，不會在查看行程時被強制刷新。
 - 地圖底圖（OpenStreetMap）與 Google Maps 不會被快取，離線時地圖可能空白，但時間軸與地點清單仍可使用。
 - 若需要手動清除：瀏覽器開發者工具 → Application → Storage → Clear site data。
@@ -200,7 +261,7 @@ src/data/          載入、驗證、排序、限制檢查、預算計算
 src/components/    畫面元件（header、日期、時間軸、地圖、清單…）
 src/services/      導航網址、LocalStorage、PWA、分享
 src/utils/         日期、貨幣、DOM、URL 檢查
-tests/             單元測試；tests/e2e 為 Playwright 測試
+tests/             單元測試；tests/e2e 為 Playwright 測試；tests/fixtures 為測試用的加拿大範例資料
 scripts/           validate-data.js
 ```
 

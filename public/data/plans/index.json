@@ -1,0 +1,27 @@
+{
+  "schemaVersion": "1.0",
+  "tripId": "tokyo-fuji-2026-12",
+  "plans": [
+    {
+      "id": "a",
+      "title": "方案 A：富士攝影優先",
+      "shortTitle": "富士攝影優先",
+      "description": "河口湖兩天走完主要拍攝點，12/18 清晨再拍一次；東京走淺草、谷中、澀谷 SKY。早起、走路多。",
+      "file": "plan-a.json"
+    },
+    {
+      "id": "b",
+      "title": "方案 B：慢遊咖啡",
+      "shortTitle": "慢遊咖啡",
+      "description": "每天晚一點出門、留白多；河口湖以遊船與忍野八海為主，東京在上野、清澄白河、銀座慢慢逛。",
+      "file": "plan-b.json"
+    },
+    {
+      "id": "c",
+      "title": "方案 C：東京城市與採買",
+      "shortTitle": "東京城市與採買",
+      "description": "河口湖精簡在車站周邊與五重塔、忍野八海；12/18 早班巴士回東京，多留時間給澀谷、秋葉原與採買。",
+      "file": "plan-c.json"
+    }
+  ]
+}

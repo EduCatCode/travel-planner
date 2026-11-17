@@ -1,0 +1,1093 @@
+{
+  "schemaVersion": "1.0",
+  "trip": {
+    "id": "tokyo-fuji-2026-12",
+    "title": "東京與河口湖 7 日",
+    "subtitle": "方案 B：慢遊咖啡",
+    "startDate": "2026-12-15",
+    "endDate": "2026-12-21",
+    "timezone": "Asia/Tokyo",
+    "currency": "JPY",
+    "locale": "zh-TW",
+    "transportMode": "transit",
+    "constraints": {
+      "minAfternoonFreeMinutes": 60,
+      "afternoonWindow": {
+        "start": "13:00",
+        "end": "17:00"
+      },
+      "minimumTwoNightBases": 2,
+      "interests": [
+        "photography",
+        "local-food",
+        "cafe"
+      ]
+    }
+  },
+  "travelers": [],
+  "days": [
+    {
+      "id": "day-01",
+      "date": "2026-12-15",
+      "title": "高雄飛東京，入住新宿",
+      "baseCity": "新宿",
+      "summary": "清晨從小港出發，下午抵達新宿，晚上在西口一帶吃晚餐，早點休息。",
+      "driveMinutes": 0,
+      "items": [
+        {
+          "id": "d01-checkin-khh",
+          "type": "transport",
+          "startTime": "05:30",
+          "endTime": "06:30",
+          "title": "小港機場報到",
+          "description": "機場 04:20 開門、05:30 開櫃（台灣時間）。托運行李預付 20 公斤。",
+          "place": {
+            "name": "高雄國際機場",
+            "address": "高雄市小港區",
+            "latitude": 22.5771,
+            "longitude": 120.35
+          },
+          "tags": [
+            "airport"
+          ],
+          "locked": true
+        },
+        {
+          "id": "d01-flight",
+          "type": "transport",
+          "startTime": "08:00",
+          "endTime": "12:10",
+          "title": "IT280 高雄 → 成田",
+          "description": "08:00 為台灣時間、12:10 為日本時間（日本比台灣快 1 小時）。機票 1 人 NT$12,975，2 人以相同票價估算。",
+          "place": {
+            "name": "成田國際機場",
+            "address": "千葉縣成田市",
+            "latitude": 35.772,
+            "longitude": 140.3929
+          },
+          "cost": {
+            "amount": 25950,
+            "currency": "TWD",
+            "category": "transport",
+            "status": "estimated"
+          },
+          "booking": {
+            "status": "confirmed",
+            "provider": "台灣虎航"
+          },
+          "tags": [
+            "flight"
+          ],
+          "locked": true
+        },
+        {
+          "id": "d01-immigration",
+          "type": "transport",
+          "startTime": "12:10",
+          "endTime": "13:10",
+          "title": "入境與領行李",
+          "description": "可事先填好 Visit Japan Web 節省時間。",
+          "tags": [
+            "airport"
+          ]
+        },
+        {
+          "id": "d01-nex",
+          "type": "transport",
+          "startTime": "13:20",
+          "endTime": "15:00",
+          "title": "成田特快 N'EX 到新宿",
+          "description": "車程約 80–90 分鐘，也可搭利木津巴士。票價為預估，以現場為準。",
+          "place": {
+            "name": "JR 新宿站",
+            "address": "東京都新宿區",
+            "latitude": 35.6896,
+            "longitude": 139.7006
+          },
+          "cost": {
+            "amount": 6500,
+            "currency": "JPY",
+            "category": "transport",
+            "status": "estimated"
+          },
+          "tags": [
+            "train"
+          ]
+        },
+        {
+          "id": "d01-hotel",
+          "type": "lodging",
+          "startTime": "15:15",
+          "endTime": "15:45",
+          "title": "入住新宿公寓酒店",
+          "description": "14:00–21:00 可入住，住 1 晚。房費 12/11 由 Booking 扣款。",
+          "place": {
+            "name": "新宿住宿（示意位置）",
+            "address": "東京都新宿區",
+            "latitude": 35.6938,
+            "longitude": 139.7034
+          },
+          "cost": {
+            "amount": 2228,
+            "currency": "TWD",
+            "category": "lodging",
+            "status": "confirmed"
+          },
+          "booking": {
+            "status": "confirmed",
+            "provider": "Booking.com"
+          },
+          "locked": true
+        },
+        {
+          "id": "d01-rest",
+          "type": "free-time",
+          "startTime": "15:45",
+          "endTime": "16:45",
+          "title": "休息與整理行李"
+        },
+        {
+          "id": "d01-dinner",
+          "type": "meal",
+          "startTime": "17:30",
+          "endTime": "19:00",
+          "title": "思い出横丁晚餐",
+          "description": "小店多、位子少，晚一點人會變多。",
+          "place": {
+            "name": "思い出横丁",
+            "address": "東京都新宿區西新宿",
+            "latitude": 35.6929,
+            "longitude": 139.6995
+          },
+          "cost": {
+            "amount": 6000,
+            "currency": "JPY",
+            "category": "meal",
+            "status": "estimated"
+          },
+          "tags": [
+            "local-food"
+          ]
+        }
+      ],
+      "notes": [
+        "明天富士回遊 08:30 發車，08:00 前到新宿站月台排隊。"
+      ]
+    },
+    {
+      "id": "day-02",
+      "date": "2026-12-16",
+      "title": "富士回遊到河口湖，遊船與溫泉",
+      "baseCity": "河口湖",
+      "summary": "抵達後搭遊船看湖景，下午在湖畔咖啡館坐久一點，早點入住泡溫泉。",
+      "weatherNote": "12 月河口湖早晚常在 0°C 以下，湖邊風大，請穿保暖外套、帶手套。",
+      "driveMinutes": 0,
+      "items": [
+        {
+          "id": "d02-breakfast",
+          "type": "meal",
+          "startTime": "07:15",
+          "endTime": "07:45",
+          "title": "車站早餐",
+          "description": "便利商店或車站內早餐，買好路上的飲料。",
+          "cost": {
+            "amount": 1500,
+            "currency": "JPY",
+            "category": "meal",
+            "status": "estimated"
+          }
+        },
+        {
+          "id": "d02-fujikaiyu",
+          "type": "transport",
+          "startTime": "08:30",
+          "endTime": "10:26",
+          "title": "JR 富士回遊 新宿 → 河口湖",
+          "description": "發車前 30 分鐘（08:00）到月台排隊；第 1、3 節車廂有行李放置區。指定席一個月前開放預約。",
+          "place": {
+            "name": "河口湖站",
+            "address": "山梨縣富士河口湖町",
+            "latitude": 35.4983,
+            "longitude": 138.769
+          },
+          "cost": {
+            "amount": 3604,
+            "currency": "TWD",
+            "category": "transport",
+            "status": "estimated"
+          },
+          "booking": {
+            "status": "pending",
+            "provider": "JR 東日本"
+          },
+          "tags": [
+            "train"
+          ],
+          "locked": true
+        },
+        {
+          "id": "d02-hotel",
+          "type": "lodging",
+          "startTime": "10:45",
+          "endTime": "11:15",
+          "title": "Kawaguchiko Hotel 寄放行李",
+          "description": "15:00–21:00 可入住，住 2 晚。先寄放行李，傍晚回來辦入住（可否提早寄放請向飯店確認）。12/10 前要切換趣旅行方案，12/10 由 Booking 請款。",
+          "place": {
+            "name": "河口湖住宿（示意位置）",
+            "address": "山梨縣富士河口湖町",
+            "latitude": 35.505,
+            "longitude": 138.766
+          },
+          "cost": {
+            "amount": 9665,
+            "currency": "TWD",
+            "category": "lodging",
+            "status": "confirmed"
+          },
+          "booking": {
+            "status": "confirmed",
+            "provider": "Booking.com"
+          },
+          "locked": true
+        },
+        {
+          "id": "d02-lunch",
+          "type": "meal",
+          "startTime": "11:30",
+          "endTime": "12:30",
+          "title": "午餐：山梨餺飥（ほうとう）",
+          "description": "南瓜味噌燉麵，冬天很適合。",
+          "place": {
+            "name": "河口湖站",
+            "address": "山梨縣富士河口湖町",
+            "latitude": 35.4983,
+            "longitude": 138.769
+          },
+          "cost": {
+            "amount": 3600,
+            "currency": "JPY",
+            "category": "meal",
+            "status": "estimated"
+          },
+          "tags": [
+            "local-food"
+          ]
+        },
+        {
+          "id": "d02b-cruise",
+          "type": "activity",
+          "startTime": "12:45",
+          "endTime": "13:45",
+          "title": "河口湖遊船",
+          "description": "約 20 分鐘繞湖，天氣好可看到富士山。",
+          "place": {
+            "name": "河口湖遊覽船",
+            "address": "山梨縣富士河口湖町",
+            "latitude": 35.5025,
+            "longitude": 138.7704
+          },
+          "cost": {
+            "amount": 2000,
+            "currency": "JPY",
+            "category": "ticket",
+            "status": "estimated"
+          }
+        },
+        {
+          "id": "d02b-cafe",
+          "type": "free-time",
+          "startTime": "14:00",
+          "endTime": "15:30",
+          "title": "湖畔咖啡館",
+          "tags": [
+            "cafe"
+          ]
+        },
+        {
+          "id": "d02b-onsen",
+          "type": "free-time",
+          "startTime": "16:00",
+          "endTime": "17:30",
+          "title": "回飯店入住、泡溫泉"
+        },
+        {
+          "id": "d02b-dinner",
+          "type": "meal",
+          "startTime": "18:30",
+          "endTime": "20:00",
+          "title": "晚餐",
+          "cost": {
+            "amount": 6000,
+            "currency": "JPY",
+            "category": "meal",
+            "status": "estimated"
+          }
+        }
+      ],
+      "notes": [
+        "天氣不佳時，12/16 與 12/17 兩天行程可互換。"
+      ]
+    },
+    {
+      "id": "day-03",
+      "date": "2026-12-17",
+      "title": "忍野八海與大石公園黃昏",
+      "baseCity": "河口湖",
+      "summary": "睡飽再出門，上午忍野八海，下午留白，黃昏到大石公園。",
+      "weatherNote": "12 月河口湖早晚常在 0°C 以下，湖邊風大，請穿保暖外套、帶手套。",
+      "driveMinutes": 0,
+      "items": [
+        {
+          "id": "d03b-breakfast",
+          "type": "meal",
+          "startTime": "09:00",
+          "endTime": "10:00",
+          "title": "飯店早餐"
+        },
+        {
+          "id": "d03b-bus1",
+          "type": "transport",
+          "startTime": "10:15",
+          "endTime": "10:45",
+          "title": "巴士到忍野八海",
+          "cost": {
+            "amount": null,
+            "currency": "JPY",
+            "category": "transport",
+            "status": "unknown"
+          },
+          "tags": [
+            "bus"
+          ]
+        },
+        {
+          "id": "d03b-oshino",
+          "type": "activity",
+          "startTime": "10:45",
+          "endTime": "12:15",
+          "title": "忍野八海",
+          "description": "慢慢逛湧泉池與小吃攤。",
+          "place": {
+            "name": "忍野八海",
+            "address": "山梨縣忍野村",
+            "latitude": 35.4603,
+            "longitude": 138.8329
+          },
+          "tags": [
+            "photography"
+          ]
+        },
+        {
+          "id": "d03b-lunch",
+          "type": "meal",
+          "startTime": "12:15",
+          "endTime": "13:00",
+          "title": "忍野八海周邊午餐",
+          "cost": {
+            "amount": 3000,
+            "currency": "JPY",
+            "category": "meal",
+            "status": "estimated"
+          },
+          "tags": [
+            "local-food"
+          ]
+        },
+        {
+          "id": "d03b-bus2",
+          "type": "transport",
+          "startTime": "13:00",
+          "endTime": "13:45",
+          "title": "巴士回河口湖",
+          "tags": [
+            "bus"
+          ]
+        },
+        {
+          "id": "d03b-free",
+          "type": "free-time",
+          "startTime": "13:45",
+          "endTime": "15:45",
+          "title": "午後留白：咖啡或溫泉",
+          "tags": [
+            "cafe"
+          ]
+        },
+        {
+          "id": "d03b-oishi",
+          "type": "activity",
+          "startTime": "16:00",
+          "endTime": "16:45",
+          "title": "大石公園黃昏",
+          "description": "日落約 16:30；周遊巴士紅線，末班請確認。",
+          "place": {
+            "name": "大石公園",
+            "address": "山梨縣富士河口湖町大石",
+            "latitude": 35.5186,
+            "longitude": 138.7432
+          },
+          "tags": [
+            "photography"
+          ]
+        },
+        {
+          "id": "d03b-dinner",
+          "type": "meal",
+          "startTime": "18:30",
+          "endTime": "20:00",
+          "title": "晚餐",
+          "cost": {
+            "amount": 6000,
+            "currency": "JPY",
+            "category": "meal",
+            "status": "estimated"
+          }
+        }
+      ],
+      "notes": [
+        "天氣不佳時，12/16 與 12/17 兩天行程可互換。"
+      ]
+    },
+    {
+      "id": "day-04",
+      "date": "2026-12-18",
+      "title": "慢慢吃早餐，下午回東京",
+      "baseCity": "上野",
+      "summary": "上午在湖邊散步，吃過午餐才搭巴士回東京，入住後到阿美橫町晚餐。",
+      "driveMinutes": 0,
+      "items": [
+        {
+          "id": "d04b-breakfast",
+          "type": "meal",
+          "startTime": "08:30",
+          "endTime": "09:30",
+          "title": "飯店早餐"
+        },
+        {
+          "id": "d04b-walk",
+          "type": "activity",
+          "startTime": "10:00",
+          "endTime": "11:00",
+          "title": "河口湖畔散步",
+          "place": {
+            "name": "河口湖遊覽船",
+            "address": "山梨縣富士河口湖町",
+            "latitude": 35.5025,
+            "longitude": 138.7704
+          },
+          "tags": [
+            "photography"
+          ]
+        },
+        {
+          "id": "d04b-checkout",
+          "type": "lodging",
+          "startTime": "11:00",
+          "endTime": "11:15",
+          "title": "退房"
+        },
+        {
+          "id": "d04b-lunch",
+          "type": "meal",
+          "startTime": "11:30",
+          "endTime": "12:15",
+          "title": "河口湖站周邊午餐",
+          "cost": {
+            "amount": 3000,
+            "currency": "JPY",
+            "category": "meal",
+            "status": "estimated"
+          }
+        },
+        {
+          "id": "d04b-bus",
+          "type": "transport",
+          "startTime": "12:30",
+          "endTime": "14:30",
+          "title": "高速巴士 河口湖 → 新宿",
+          "description": "尚未購票。車程約 1 小時 45 分到 2 小時，年末週五可能塞車。票價為預估。",
+          "place": {
+            "name": "新宿高速巴士總站（Busta 新宿）",
+            "address": "東京都新宿區",
+            "latitude": 35.688,
+            "longitude": 139.7004
+          },
+          "cost": {
+            "amount": 4400,
+            "currency": "JPY",
+            "category": "transport",
+            "status": "estimated"
+          },
+          "booking": {
+            "status": "pending",
+            "provider": "富士急巴士／京王巴士"
+          },
+          "tags": [
+            "bus"
+          ]
+        },
+        {
+          "id": "d04b-jr",
+          "type": "transport",
+          "startTime": "14:45",
+          "endTime": "15:15",
+          "title": "JR 新宿 → 上野",
+          "description": "山手線約 25 分鐘。",
+          "place": {
+            "name": "JR 上野站",
+            "address": "東京都台東區",
+            "latitude": 35.7138,
+            "longitude": 139.7773
+          },
+          "cost": {
+            "amount": 420,
+            "currency": "JPY",
+            "category": "transport",
+            "status": "estimated"
+          },
+          "tags": [
+            "train"
+          ]
+        },
+        {
+          "id": "d04b-cafe",
+          "type": "free-time",
+          "startTime": "15:15",
+          "endTime": "16:00",
+          "title": "上野站周邊咖啡，等入住",
+          "tags": [
+            "cafe"
+          ]
+        },
+        {
+          "id": "d04b-hotel",
+          "type": "lodging",
+          "startTime": "16:00",
+          "endTime": "16:30",
+          "title": "入住上野東京屋",
+          "description": "16:00 開始可入住，住 3 晚。",
+          "place": {
+            "name": "上野住宿（示意位置）",
+            "address": "東京都台東區",
+            "latitude": 35.7115,
+            "longitude": 139.7766
+          },
+          "cost": {
+            "amount": 9858,
+            "currency": "TWD",
+            "category": "lodging",
+            "status": "paid"
+          },
+          "booking": {
+            "status": "confirmed",
+            "provider": "訂房平台"
+          },
+          "locked": true
+        },
+        {
+          "id": "d04b-rest",
+          "type": "free-time",
+          "startTime": "16:30",
+          "endTime": "17:30",
+          "title": "飯店休息"
+        },
+        {
+          "id": "d04b-dinner",
+          "type": "meal",
+          "startTime": "18:00",
+          "endTime": "19:30",
+          "title": "阿美橫町晚餐",
+          "place": {
+            "name": "阿美橫町",
+            "address": "東京都台東區上野",
+            "latitude": 35.7101,
+            "longitude": 139.7745
+          },
+          "cost": {
+            "amount": 5000,
+            "currency": "JPY",
+            "category": "meal",
+            "status": "estimated"
+          },
+          "tags": [
+            "local-food"
+          ]
+        }
+      ]
+    },
+    {
+      "id": "day-05",
+      "date": "2026-12-19",
+      "title": "上野公園、博物館與谷中銀座",
+      "baseCity": "上野",
+      "summary": "都在上野步行範圍內，上午博物館，下午公園散步與谷中老街。",
+      "driveMinutes": 0,
+      "items": [
+        {
+          "id": "d05b-breakfast",
+          "type": "meal",
+          "startTime": "09:00",
+          "endTime": "10:00",
+          "title": "上野咖啡早餐",
+          "cost": {
+            "amount": 2000,
+            "currency": "JPY",
+            "category": "meal",
+            "status": "estimated"
+          },
+          "tags": [
+            "cafe"
+          ]
+        },
+        {
+          "id": "d05b-museum",
+          "type": "activity",
+          "startTime": "10:15",
+          "endTime": "12:15",
+          "title": "東京國立博物館",
+          "description": "週一休館，週六有開；票價為預估。",
+          "place": {
+            "name": "東京國立博物館",
+            "address": "東京都台東區上野公園",
+            "latitude": 35.7188,
+            "longitude": 139.7765,
+            "websiteUrl": "https://www.tnm.jp/"
+          },
+          "cost": {
+            "amount": 2000,
+            "currency": "JPY",
+            "category": "ticket",
+            "status": "estimated"
+          }
+        },
+        {
+          "id": "d05b-lunch",
+          "type": "meal",
+          "startTime": "12:30",
+          "endTime": "13:30",
+          "title": "上野午餐",
+          "cost": {
+            "amount": 3000,
+            "currency": "JPY",
+            "category": "meal",
+            "status": "estimated"
+          }
+        },
+        {
+          "id": "d05b-park",
+          "type": "free-time",
+          "startTime": "13:30",
+          "endTime": "15:00",
+          "title": "上野公園散步、休息",
+          "place": {
+            "name": "上野恩賜公園",
+            "address": "東京都台東區",
+            "latitude": 35.7148,
+            "longitude": 139.7731
+          }
+        },
+        {
+          "id": "d05b-yanaka",
+          "type": "activity",
+          "startTime": "15:00",
+          "endTime": "16:30",
+          "title": "谷中銀座",
+          "description": "老街小吃與雜貨，傍晚到夕陽階梯。",
+          "place": {
+            "name": "谷中銀座與夕陽階梯",
+            "address": "東京都台東區谷中",
+            "latitude": 35.7278,
+            "longitude": 139.7662
+          },
+          "tags": [
+            "photography"
+          ]
+        },
+        {
+          "id": "d05b-dinner",
+          "type": "meal",
+          "startTime": "18:00",
+          "endTime": "19:30",
+          "title": "晚餐",
+          "cost": {
+            "amount": 5000,
+            "currency": "JPY",
+            "category": "meal",
+            "status": "estimated"
+          }
+        }
+      ]
+    },
+    {
+      "id": "day-06",
+      "date": "2026-12-20",
+      "title": "清澄白河咖啡與銀座",
+      "baseCity": "上野",
+      "summary": "上午到清澄白河咖啡街區與清澄庭園，下午銀座逛街，晚上打包。",
+      "driveMinutes": 0,
+      "items": [
+        {
+          "id": "d06b-garden",
+          "type": "activity",
+          "startTime": "10:00",
+          "endTime": "11:00",
+          "title": "清澄庭園",
+          "description": "日式庭園，票價為預估。",
+          "place": {
+            "name": "清澄庭園",
+            "address": "東京都江東區",
+            "latitude": 35.6806,
+            "longitude": 139.7965
+          },
+          "cost": {
+            "amount": 600,
+            "currency": "JPY",
+            "category": "ticket",
+            "status": "estimated"
+          },
+          "tags": [
+            "photography"
+          ]
+        },
+        {
+          "id": "d06b-cafe",
+          "type": "meal",
+          "startTime": "11:00",
+          "endTime": "12:30",
+          "title": "清澄白河咖啡館與早午餐",
+          "place": {
+            "name": "清澄白河咖啡街區",
+            "address": "東京都江東區",
+            "latitude": 35.6812,
+            "longitude": 139.8006
+          },
+          "cost": {
+            "amount": 3000,
+            "currency": "JPY",
+            "category": "meal",
+            "status": "estimated"
+          },
+          "tags": [
+            "cafe"
+          ]
+        },
+        {
+          "id": "d06b-free",
+          "type": "free-time",
+          "startTime": "13:00",
+          "endTime": "14:30",
+          "title": "午後留白"
+        },
+        {
+          "id": "d06b-ginza",
+          "type": "activity",
+          "startTime": "14:45",
+          "endTime": "17:00",
+          "title": "銀座逛街",
+          "description": "週日中央通部分時段為步行者天國。",
+          "place": {
+            "name": "銀座中央通",
+            "address": "東京都中央區銀座",
+            "latitude": 35.6717,
+            "longitude": 139.765
+          }
+        },
+        {
+          "id": "d06b-dinner",
+          "type": "meal",
+          "startTime": "18:00",
+          "endTime": "19:30",
+          "title": "晚餐",
+          "cost": {
+            "amount": 5000,
+            "currency": "JPY",
+            "category": "meal",
+            "status": "estimated"
+          }
+        },
+        {
+          "id": "d06b-pack",
+          "type": "note",
+          "title": "今晚打包",
+          "description": "明早 08:00 前退房出發。"
+        }
+      ]
+    },
+    {
+      "id": "day-07",
+      "date": "2026-12-21",
+      "title": "上野搭 Skyliner 到成田，返台",
+      "baseCity": "返程（不住宿）",
+      "summary": "早上退房搭 Skyliner，約 41 分鐘到機場，預留充足報到時間。",
+      "driveMinutes": 0,
+      "items": [
+        {
+          "id": "d07-checkout",
+          "type": "lodging",
+          "startTime": "07:30",
+          "endTime": "08:00",
+          "title": "上野東京屋退房"
+        },
+        {
+          "id": "d07-skyliner",
+          "type": "transport",
+          "startTime": "08:15",
+          "endTime": "09:00",
+          "title": "京成 Skyliner 上野 → 成田機場",
+          "description": "車程約 41 分。台灣虎航在成田使用的航廈請出發前確認。票價為預估。",
+          "place": {
+            "name": "京成上野站",
+            "address": "東京都台東區",
+            "latitude": 35.7113,
+            "longitude": 139.7735
+          },
+          "cost": {
+            "amount": 5200,
+            "currency": "JPY",
+            "category": "transport",
+            "status": "estimated"
+          },
+          "booking": {
+            "status": "pending",
+            "provider": "京成電鐵"
+          },
+          "tags": [
+            "train"
+          ],
+          "locked": true
+        },
+        {
+          "id": "d07-airport",
+          "type": "transport",
+          "startTime": "09:00",
+          "endTime": "11:00",
+          "title": "機場報到與安檢",
+          "description": "回程托運行李預付 25 公斤。",
+          "place": {
+            "name": "成田國際機場",
+            "address": "千葉縣成田市",
+            "latitude": 35.772,
+            "longitude": 140.3929
+          },
+          "tags": [
+            "airport"
+          ]
+        },
+        {
+          "id": "d07-flight",
+          "type": "transport",
+          "startTime": "11:25",
+          "endTime": "15:05",
+          "title": "IT281 成田 → 高雄",
+          "description": "11:25 為日本時間、15:05 為台灣時間。機上餐點已加購。",
+          "booking": {
+            "status": "confirmed",
+            "provider": "台灣虎航"
+          },
+          "tags": [
+            "flight"
+          ],
+          "locked": true
+        }
+      ]
+    }
+  ],
+  "checklists": [
+    {
+      "id": "packing-main",
+      "title": "行李清單",
+      "scope": "trip",
+      "items": [
+        {
+          "id": "passport",
+          "label": "護照（2 人）",
+          "category": "documents",
+          "required": true
+        },
+        {
+          "id": "vjw",
+          "label": "Visit Japan Web 入境 QR Code",
+          "category": "documents",
+          "required": true
+        },
+        {
+          "id": "credit-card",
+          "label": "海外回饋超過 2% 的信用卡",
+          "category": "money",
+          "required": true
+        },
+        {
+          "id": "cash",
+          "label": "日圓現金",
+          "category": "money"
+        },
+        {
+          "id": "ic-card",
+          "label": "交通 IC 卡（Suica／PASMO 或手機版）",
+          "category": "money"
+        },
+        {
+          "id": "coat",
+          "label": "保暖外套、手套、毛帽（河口湖夜間低於 0°C）",
+          "category": "clothing",
+          "required": true
+        },
+        {
+          "id": "shoes",
+          "label": "好走的防滑鞋",
+          "category": "gear"
+        },
+        {
+          "id": "heat-pack",
+          "label": "暖暖包",
+          "category": "gear"
+        },
+        {
+          "id": "camera",
+          "label": "相機、備用電池（低溫耗電快）、腳架",
+          "category": "electronics"
+        },
+        {
+          "id": "power-bank",
+          "label": "行動電源與充電線",
+          "category": "electronics"
+        },
+        {
+          "id": "esim",
+          "label": "網卡或 eSIM",
+          "category": "electronics"
+        },
+        {
+          "id": "meds",
+          "label": "常備藥品",
+          "category": "health"
+        },
+        {
+          "id": "baggage",
+          "label": "行李重量：去程 20 公斤、回程 25 公斤",
+          "category": "gear"
+        }
+      ]
+    },
+    {
+      "id": "booking",
+      "title": "預訂狀態",
+      "scope": "trip",
+      "items": [
+        {
+          "id": "flight",
+          "label": "機票 2 人（IT280／IT281）",
+          "category": "booking",
+          "required": true
+        },
+        {
+          "id": "hotel-shinjuku",
+          "label": "新宿住宿（12/11 扣款）",
+          "category": "booking",
+          "required": true
+        },
+        {
+          "id": "hotel-kawaguchiko",
+          "label": "河口湖住宿（12/10 前切換趣旅行方案）",
+          "category": "booking",
+          "required": true
+        },
+        {
+          "id": "hotel-ueno",
+          "label": "上野東京屋",
+          "category": "booking",
+          "required": true
+        },
+        {
+          "id": "fuji-excursion",
+          "label": "富士回遊指定席 2 人（12/16 08:30）",
+          "category": "booking",
+          "required": true
+        },
+        {
+          "id": "highway-bus",
+          "label": "河口湖 → 新宿高速巴士 2 人（12/18）",
+          "category": "booking",
+          "required": true
+        },
+        {
+          "id": "skyliner",
+          "label": "京成 Skyliner 2 人（12/21）",
+          "category": "booking"
+        }
+      ]
+    },
+    {
+      "id": "todo",
+      "title": "行前待辦",
+      "scope": "trip",
+      "items": [
+        {
+          "id": "card-fee",
+          "label": "海外刷卡有 1.5% 手續費，只刷回饋超過 2% 的卡",
+          "category": "money",
+          "required": true
+        },
+        {
+          "id": "kawaguchiko-plan",
+          "label": "12/10 前切換河口湖住宿的趣旅行方案",
+          "category": "booking",
+          "required": true
+        },
+        {
+          "id": "charges",
+          "label": "確認 12/10、12/11 住宿扣款",
+          "category": "money"
+        },
+        {
+          "id": "vjw-fill",
+          "label": "填寫 Visit Japan Web",
+          "category": "prep",
+          "required": true
+        },
+        {
+          "id": "offline-map",
+          "label": "下載 Google Maps 離線地圖",
+          "category": "prep"
+        },
+        {
+          "id": "fuji-weather",
+          "label": "出發前查富士山天氣與能見度",
+          "category": "prep"
+        },
+        {
+          "id": "terminal",
+          "label": "確認虎航在成田的航廈",
+          "category": "prep"
+        },
+        {
+          "id": "insurance",
+          "label": "旅遊平安險與不便險",
+          "category": "prep"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    {
+      "id": "jr-east",
+      "title": "JR 東日本（富士回遊）",
+      "url": "https://www.jreast.co.jp/"
+    },
+    {
+      "id": "keisei",
+      "title": "京成電鐵（Skyliner）",
+      "url": "https://www.keisei.co.jp/"
+    },
+    {
+      "id": "shibuya-sky",
+      "title": "SHIBUYA SKY",
+      "url": "https://www.shibuya-scramble-square.com/sky/"
+    },
+    {
+      "id": "vjw",
+      "title": "Visit Japan Web",
+      "url": "https://www.vjw.digital.go.jp/"
+    }
+  ]
+}

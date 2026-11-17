@@ -1,6 +1,6 @@
 import { defineConfig } from "vite";
 import { createHash } from "node:crypto";
-import { writeFileSync } from "node:fs";
+import { readFileSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 /**
@@ -26,7 +26,14 @@ const precacheManifest = () => ({
     const files = Object.keys(bundle)
       .filter((name) => !name.endsWith(".map") && name !== "index.html" && name !== "precache-manifest.js")
       .sort();
-    const build = createHash("sha256").update(files.join("\n")).digest("hex").slice(0, 10);
+    // 方案清單變動（新增、移除方案）也要觸發 Service Worker 更新，才會預先快取新方案
+    let planIndex = "";
+    try {
+      planIndex = readFileSync("public/data/plans/index.json", "utf8");
+    } catch {
+      // 沒有方案清單
+    }
+    const build = createHash("sha256").update(files.join("\n")).update(planIndex).digest("hex").slice(0, 10);
     const urls = files.map((f) => `./${f}`);
     writeFileSync(
       join(options.dir, "precache-manifest.js"),

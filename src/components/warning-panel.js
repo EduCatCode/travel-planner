@@ -32,8 +32,9 @@ const row = (check, testId) => {
  * @param {HTMLElement} root
  * @param {ReturnType<typeof import("../data/constraints.js").checkDay>} result
  * @param {number | undefined} distanceKm
+ * @param {{ showDrive?: boolean }} [options] 非自駕行程不顯示駕車列
  */
-export const renderDayChecks = (root, result, distanceKm) => {
+export const renderDayChecks = (root, result, distanceKm, { showDrive = true } = {}) => {
   const { drive } = result;
   const driveText = drive.max
     ? `上限 ${formatDuration(drive.max)}${drive.level === "blocker" ? `，超過 ${formatDuration(drive.minutes - drive.max)}` : ""}`
@@ -46,7 +47,7 @@ export const renderDayChecks = (root, result, distanceKm) => {
   };
   replaceChildren(root,
     h("ul", { className: "checks", role: "list" },
-      row(driveCheck, "drive-check"),
+      showDrive && row(driveCheck, "drive-check"),
       result.checks.map((c) => row(c, `check-${c.id}`)),
     ),
   );

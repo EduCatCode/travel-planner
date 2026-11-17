@@ -26,9 +26,11 @@ export const describeStatus = (status) => {
  * @param {object} model.trip
  * @param {object[]} model.days
  * @param {import("../utils/date.js").TripStatus} model.status
- * @param {{ onCopyLink: () => void, onNativeShare: (() => void) | null, onPrint: () => void }} actions
+ * @param {import("../data/plan-index.js").PlanEntry[]} [model.plans]
+ * @param {string | null} [model.planId]
+ * @param {{ onCopyLink: () => void, onNativeShare: (() => void) | null, onPrint: () => void, onSelectPlan?: (id: string) => void }} actions
  */
-export const createTripHeader = (root, { trip, days, status }, actions) => {
+export const createTripHeader = (root, { trip, days, status, plans = [], planId = null }, actions) => {
   const locale = trip.locale || "zh-TW";
   const totalDays = daysBetween(trip.startDate, trip.endDate) + 1;
   // 最後一天通常是返程、沒有住宿，因此路線以前幾晚的住宿基地計算
@@ -53,11 +55,12 @@ export const createTripHeader = (root, { trip, days, status }, actions) => {
         h("dl", { className: "trip-facts" },
           fact("calendar", "日期", h("span", {}, `${formatDateRange(trip.startDate, trip.endDate, locale)}，共 ${totalDays} 天`)),
           route && fact("pin", "路線", route),
-          fact("car", "交通", TRANSPORT_MODES[trip.transportMode] ?? trip.transportMode),
+          fact(trip.transportMode === "drive" ? "car" : "train", "交通", TRANSPORT_MODES[trip.transportMode] ?? trip.transportMode),
           fact("info", "狀態", h("span", { "data-testid": "trip-status" }, describeStatus(status))),
           fact("list", "目前查看", selectedLabel),
         ),
       ),
+      plans.length > 1 && planSwitcher(plans, planId, actions.onSelectPlan),
       h("div", { className: "trip-header__actions" },
         h("button", { type: "button", className: "btn btn--ghost", onclick: actions.onCopyLink, "data-testid": "copy-link" },
           icon("link"), h("span", {}, "複製連結")),
@@ -87,3 +90,32 @@ const fact = (iconName, term, value) =>
     h("dt", {}, icon(iconName), h("span", {}, term)),
     h("dd", {}, value),
   );
+
+/**
+ * 方案切換：一組按鈕，選中者 aria-pressed="true"。
+ * @param {import("../data/plan-index.js").PlanEntry[]} plans
+ * @param {string | null} current
+ * @param {((id: string) => void) | undefined} onSelect
+ */
+const planSwitcher = (plans, current, onSelect) => {
+  const selected = plans.find((p) => p.id === current);
+  return h("section", { className: "plan-switcher", "aria-labelledby": "plan-switcher-title", "data-testid": "plan-switcher" },
+    h("h2", { id: "plan-switcher-title", className: "plan-switcher__title" }, "行程方案"),
+    h("div", { className: "plan-switcher__options", role: "group", "aria-labelledby": "plan-switcher-title" },
+      plans.map((plan) =>
+        h("button", {
+          type: "button",
+          className: "plan-option",
+          "data-plan-id": plan.id,
+          "data-testid": `plan-${plan.id}`,
+          "aria-pressed": String(plan.id === current),
+          "aria-describedby": plan.id === current && plan.description ? "plan-description" : null,
+          onclick: () => onSelect?.(plan.id),
+        },
+          h("span", { className: "plan-option__label" }, `方案 ${plan.id.toUpperCase()}`),
+          h("span", { className: "plan-option__name" }, plan.shortTitle || plan.title),
+        )),
+    ),
+    selected?.description && h("p", { id: "plan-description", className: "plan-switcher__desc", "data-testid": "plan-description" }, selected.description),
+  );
+};

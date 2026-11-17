@@ -8,6 +8,8 @@ const BASE = import.meta.env?.BASE_URL ?? "./";
 
 export const APP_VERSION = "1.0.0";
 export const DATA_URL = `${BASE}data/itinerary.json`;
+export const PLANS_DIR = `${BASE}data/plans/`;
+export const PLANS_INDEX_URL = `${PLANS_DIR}index.json`;
 export const SERVICE_WORKER_URL = `${BASE}service-worker.js`;
 export const SERVICE_WORKER_SCOPE = BASE;
 export const PLACEHOLDER_IMAGE = `${BASE}images/placeholders/place.svg`;

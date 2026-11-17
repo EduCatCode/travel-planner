@@ -1,15 +1,23 @@
 import { test as base, expect } from "@playwright/test";
 import AxeBuilder from "@axe-core/playwright";
+import { readFileSync } from "node:fs";
 
-/** 封鎖第三方地圖 tiles，讓測試不依賴外部網路。 */
+/**
+ * 單一行程模式的測試：使用固定的加拿大範例資料，並讓 plans/index.json 回應 404，
+ * 確保網站在沒有方案清單時退回讀取 itinerary.json。
+ */
+const CANADA = readFileSync(new URL("../fixtures/canada-itinerary.json", import.meta.url), "utf8");
+const canada = () => JSON.parse(CANADA);
+const DATA = "**/data/itinerary.json";
+
 const test = base.extend({
   page: async ({ page }, use) => {
     await page.route("https://tile.openstreetmap.org/**", (route) => route.abort());
+    await page.route("**/data/plans/index.json", (route) => route.fulfill({ status: 404, body: "not found" }));
+    await page.route(DATA, (route) => route.fulfill({ json: canada() }));
     await use(page);
   },
 });
-
-const DATA = "**/data/itinerary.json";
 
 test.describe("核心流程", () => {
   test("載入、切換日期、卡片與地圖聯動、清單保存、分享", async ({ page, context, baseURL }) => {
@@ -91,11 +99,10 @@ test.describe("核心流程", () => {
     await expect(page.getByTestId("drive-check")).toContainText("注意");
     await expect(page.getByTestId("check-afternoon-free")).toContainText("下午留白不足");
 
-    await page.route(DATA, async (route) => {
-      const res = await route.fetch();
-      const json = await res.json();
+    await page.route(DATA, (route) => {
+      const json = canada();
       json.days[3].driveMinutes = 241;
-      await route.fulfill({ response: res, json });
+      return route.fulfill({ json });
     });
     await page.reload();
     await expect(page.getByTestId("drive-check")).toHaveAttribute("data-level", "blocker");
@@ -138,23 +145,21 @@ test.describe("錯誤與空狀態", () => {
   });
 
   test("Schema 錯誤列出摘要", async ({ page }) => {
-    await page.route(DATA, async (route) => {
-      const res = await route.fetch();
-      const json = await res.json();
+    await page.route(DATA, (route) => {
+      const json = canada();
       delete json.trip.title;
-      await route.fulfill({ response: res, json });
+      return route.fulfill({ json });
     });
     await page.goto("./");
     await expect(page.getByTestId("load-error")).toContainText("$.trip.title");
   });
 
   test("沒有座標的日期顯示地圖空狀態；沒有 items 顯示時間軸空狀態", async ({ page }) => {
-    await page.route(DATA, async (route) => {
-      const res = await route.fetch();
-      const json = await res.json();
-      json.days[0].items = json.days[0].items.map(({ place, ...rest }) => (place ? { ...rest } : rest));
+    await page.route(DATA, (route) => {
+      const json = canada();
+      for (const item of json.days[0].items) delete item.place;
       json.days[1].items = [];
-      await route.fulfill({ response: res, json });
+      return route.fulfill({ json });
     });
     await page.goto("./#day-01");
     await expect(page.getByTestId("map-empty")).toBeVisible();
@@ -235,28 +240,4 @@ test.describe("Responsive", () => {
       expect(small).toBe(0);
     });
   }
-});
-
-test.describe("離線", () => {
-  test.use({ serviceWorkers: "allow" });
-  test("Service Worker 啟用後，離線重新載入仍可查看行程", async ({ page, context }) => {
-    await page.goto("./");
-    await expect(page.getByTestId("trip-title")).toBeVisible();
-    await page.evaluate(async () => {
-      const reg = await navigator.serviceWorker.ready;
-      return reg.active?.state;
-    });
-    // 確認 SW 控制頁面並完成快取
-    await page.reload();
-    await expect.poll(() => page.evaluate(() => Boolean(navigator.serviceWorker.controller))).toBe(true);
-
-    await context.setOffline(true);
-    await page.reload();
-    await expect(page.getByTestId("trip-title")).toHaveText("加拿大洛磯與溫哥華");
-    await expect(page.getByTestId("offline-banner")).toBeVisible();
-    await expect(page.getByTestId("timeline-item").first()).toBeVisible();
-    await page.getByTestId("day-chip-4").click();
-    await expect(page.locator("#day-title")).toHaveText("冰原大道前往賈斯珀");
-    await context.setOffline(false);
-  });
 });

@@ -29,6 +29,7 @@ export const createMapView = (root, { onSelectItem }) => {
   /** @type {Map<string, HTMLButtonElement>} */ let legendButtons = new Map();
   /** @type {object | null} */ let pendingDay = null;
   let degraded = false;
+  let destroyed = false;
   let resizeObserver = null;
 
   const reducedMotion = () => window.matchMedia?.("(prefers-reduced-motion: reduce)").matches;
@@ -122,6 +123,7 @@ export const createMapView = (root, { onSelectItem }) => {
       try {
         const mod = await import("leaflet");
         await import("leaflet/dist/leaflet.css");
+        if (destroyed) return;
         L = mod.default ?? mod;
         map = L.map(canvas, {
           zoomControl: true,
@@ -149,6 +151,16 @@ export const createMapView = (root, { onSelectItem }) => {
         root.setAttribute("data-map-ready", "degraded");
         showOverlay("地圖暫時無法載入", "時間軸與每個地點的導航連結仍可正常使用。");
       }
+    },
+
+    /** 移除 Leaflet 實例（切換方案時重建）。 */
+    destroy() {
+      destroyed = true;
+      resizeObserver?.disconnect();
+      map?.remove();
+      map = null;
+      layer = null;
+      markers = new Map();
     },
 
     /** @param {object} day */

@@ -6,10 +6,13 @@
 /**
  * @param {{ origin: string, pathname: string }} location
  * @param {string | null} dayId
+ * @param {string | null} [planId]
  * @returns {string}
  */
-export const buildShareUrl = (location, dayId) =>
-  `${location.origin}${location.pathname}${dayId ? `#${encodeURIComponent(dayId)}` : ""}`;
+export const buildShareUrl = (location, dayId, planId = null) =>
+  `${location.origin}${location.pathname}` +
+  `${planId ? `?plan=${encodeURIComponent(planId)}` : ""}` +
+  `${dayId ? `#${encodeURIComponent(dayId)}` : ""}`;
 
 /** @returns {boolean} */
 export const canNativeShare = () => typeof navigator !== "undefined" && typeof navigator.share === "function";
