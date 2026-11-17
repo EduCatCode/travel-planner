@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="description" content="TripCanvas 旅程畫布：在手機或電腦查看每日行程、地圖、導航與旅行清單。" />
+    <meta name="theme-color" content="#245b78" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <title>TripCanvas 旅程畫布</title>
+    <link rel="icon" href="/icons/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/icons/icon-192.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+  </head>
+  <body data-state="loading">
+    <a class="skip-link" href="#main">跳到行程內容</a>
+    <div id="live-region" class="visually-hidden" aria-live="polite" aria-atomic="true"></div>
+
+    <div id="offline-banner" class="banner banner--offline" data-testid="offline-banner" hidden></div>
+    <div id="update-banner" class="banner banner--update" role="status" hidden></div>
+
+    <header id="trip-header" class="trip-header">
+      <div class="trip-header__inner">
+        <div class="trip-header__text">
+          <p class="trip-header__brand">TripCanvas 旅程畫布</p>
+          <p class="loading" role="status">正在載入行程…</p>
+        </div>
+      </div>
+    </header>
+
+    <nav id="day-selector" class="day-selector" aria-label="選擇日期"></nav>
+
+    <main id="main" class="main" tabindex="-1">
+      <div class="day-layout">
+        <section id="day-panel" class="day-panel" aria-labelledby="day-title">
+          <header class="day-head">
+            <p id="day-number" class="day-head__number"></p>
+            <h2 id="day-title" class="day-head__title"></h2>
+            <p id="day-base" class="day-head__base"></p>
+          </header>
+          <div id="day-extra"></div>
+          <section class="day-checks" aria-labelledby="day-checks-title">
+            <h3 id="day-checks-title" class="visually-hidden">當日檢查</h3>
+            <div id="day-checks"></div>
+          </section>
+          <section aria-labelledby="timeline-title">
+            <h3 id="timeline-title" class="section-title">時間軸</h3>
+            <div id="timeline-root"></div>
+          </section>
+        </section>
+
+        <section id="map-panel" class="map-panel" aria-labelledby="map-title">
+          <div class="map-panel__sticky">
+            <h2 id="map-title" class="section-title">當日地圖</h2>
+            <p class="muted map-panel__hint">地圖序號與時間軸相同，點選地點可互相定位。</p>
+            <div id="map-root" class="map-root"></div>
+          </div>
+        </section>
+      </div>
+
+      <div class="extras">
+        <section id="checklist-section" class="extras__block extras__block--wide" aria-labelledby="checklist-title">
+          <h2 id="checklist-title" class="section-title section-title--lg">旅行清單</h2>
+          <div id="checklist-root"></div>
+        </section>
+        <section id="budget-section" class="extras__block" aria-labelledby="budget-title">
+          <h2 id="budget-title" class="section-title section-title--lg">預算摘要</h2>
+          <div id="budget-root"></div>
+        </section>
+        <section id="trip-checks-section" class="extras__block" aria-labelledby="trip-checks-title">
+          <h2 id="trip-checks-title" class="section-title section-title--lg">旅程檢查</h2>
+          <div id="trip-checks-root"></div>
+        </section>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="site-footer__inner">
+        <div id="sources-root"></div>
+        <p>營業時間、票價、路況與天氣請以官方最新公告為準。本網站顯示的是行程資料中的靜態內容，不提供即時資訊。</p>
+        <p>地圖資料 &copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">OpenStreetMap<span class="visually-hidden">（開新分頁）</span></a> contributors。導航由 Google Maps 開啟。</p>
+      </div>
+    </footer>
+
+    <nav id="bottom-bar" class="bottom-bar" aria-label="快速前往"></nav>
+    <p id="toast" class="toast" hidden></p>
+
+    <noscript><p class="noscript">TripCanvas 需要啟用 JavaScript 才能顯示行程。</p></noscript>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

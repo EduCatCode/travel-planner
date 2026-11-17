@@ -1,0 +1,54 @@
+/* 設計 token：色彩依 SDD 6.4，文字對比皆達 WCAG AA。 */
+:root {
+  --color-bg: #f7f8f5;
+  --color-surface: #ffffff;
+  --color-text: #17212b;
+  --color-muted: #64717d;
+  --color-primary: #245b78;
+  --color-primary-contrast: #ffffff;
+  --color-primary-soft: #e3eef3;
+  --color-border: #d8dee3;
+  --color-success: #27734d;
+  --color-success-soft: #e4f1ea;
+  --color-warning: #9a6410;
+  --color-warning-soft: #f8eedc;
+  --color-danger: #a33a32;
+  --color-danger-soft: #f7e3e1;
+
+  /* 行程類型：同時搭配 icon 與文字，不只依賴顏色 */
+  --type-activity: #245b78;
+  --type-meal: #8c3f5d;
+  --type-lodging: #4a4f9c;
+  --type-transport: #4b5a66;
+  --type-free-time: #2b7266;
+  --type-note: #64717d;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-pill: 999px;
+  --shadow-card: 0 8px 24px rgb(20 35 45 / 8%);
+
+  --font-sans: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", "Heiti TC", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-numeric: "SF Pro Display", "Segoe UI", "Roboto", "Noto Sans TC", system-ui, sans-serif;
+
+  /* 字級（約 1.2 比例） */
+  --fs-xs: 0.8125rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.1875rem;
+  --fs-xl: 1.4375rem;
+  --fs-2xl: clamp(1.625rem, 1.2rem + 1.8vw, 2.5rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+
+  --content-max: 1440px;
+  --tap: 44px;
+  --selector-height: 84px;
+  --bottom-bar-height: 64px;
+}
